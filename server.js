@@ -9,15 +9,15 @@ app.use(express.json());
 
 // 🔥 RECEIVE CHAT FROM STREAMER.BOT
 app.post("/chat", (req, res) => {
-    const { user, guess } = req.body;
+    const { user, message } = req.body;
 
-    if (!user || !guess) {
-        return res.status(400).send("Invalid data");
-    }
+if (!user || !message) {
+    return res.status(400).send("Invalid data");
+}
 
-    console.log("💬 CHAT:", user, "→", guess);
+console.log("💬 CHAT:", user, "→", message);
 
-    processGuess(user, guess);
+processGuess(user, message);
 
     res.sendStatus(200);
 });
