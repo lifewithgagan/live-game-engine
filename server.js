@@ -5,6 +5,22 @@ const { Server } = require("socket.io");
 
 const app = express();
 app.use(express.static(__dirname));
+app.use(express.json());
+
+// 🔥 RECEIVE CHAT FROM STREAMER.BOT
+app.post("/chat", (req, res) => {
+    const { user, guess } = req.body;
+
+    if (!user || !guess) {
+        return res.status(400).send("Invalid data");
+    }
+
+    console.log("💬 CHAT:", user, "→", guess);
+
+    processGuess(user, guess);
+
+    res.sendStatus(200);
+});
 
 const server = http.createServer(app);
 const io = new Server(server);
