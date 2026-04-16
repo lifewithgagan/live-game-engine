@@ -28,6 +28,7 @@
 
 <h2>🎡 Wheel</h2>
 <div id="wheel"></div>
+<button onclick="copyWheel()">📋 Copy Wheel Names</button>
 
 <br>
 
@@ -185,6 +186,18 @@ socket.on("resetGame", () => {
     document.getElementById("username").value = "";
     document.getElementById("guess").value = "";
 });
+
+function copyWheel() {
+    let names = "";
+
+    document.querySelectorAll("#wheel p").forEach(el => {
+        names += el.innerText + "\n";
+    });
+
+    navigator.clipboard.writeText(names);
+
+    alert("✅ Wheel names copied!");
+}
 </script>
 
 </body>
