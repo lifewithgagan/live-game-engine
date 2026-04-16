@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neon Overlay</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            font-family: Arial;
+            color: white;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 1080px;
+            height: 1920px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* 🔴 TOP */
+        #top {
+            text-align: center;
+        }
+
+        #live {
+            color: red;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        #hook {
+            font-size: 75px;
+            font-weight: 900;
+            text-shadow: 0 0 25px #ff00ff;
+        }
+
+        #subhook {
+            font-size: 35px;
+            color: #ff00ff;
+        }
+
+        /* 🟡 GAME */
+        #game {
+            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #title {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ffff;
+        }
+
+        #number {
+            font-size: 120px;
+            color: #00ffff;
+            text-shadow: 0 0 30px #00ffff;
+        }
+
+        /* 🔤 HANGMAN */
+        #hangman {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .word {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 70px;
+            color: #00ffcc;
+            text-shadow: 0 0 20px #00ffcc;
+        }
+
+        .letter {
+            min-width: 35px;
+            text-align: center;
+        }
+
+        /* 🏆 WINNER */
+        #winner {
+            font-size: 80px;
+            color: gold;
+            text-shadow: 0 0 25px gold;
+            margin-top: 20px;
+        }
+
+        /* 📊 DATA */
+        #data {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        .section {
+            margin: 15px 0;
+        }
+
+        /* 🔥 WINNER ANIMATION */
+        @keyframes winnerPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 10px gold; }
+            50% { text-shadow: 0 0 40px gold; }
+            100% { text-shadow: 0 0 10px gold; }
+        }
+
+        .winner-animate {
+            animation: winnerPop 0.6s ease, glowPulse 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <!-- 🔴 TOP -->
+    <div id="top">
+        <div id="live">🔴 LIVE</div>
+        <div id="hook">GUESS & WIN ₹100</div>
+        <div id="subhook">TYPE IN CHAT NOW</div>
+    </div>
+
+    <!-- 🟡 GAME -->
+    <div id="game">
+        <div id="title">GAME</div>
+
+        <div id="number"></div>
+        <div id="hangman"></div>
+        <div id="winner"></div>
+    </div>
+
+    <!-- 📊 DATA -->
+    <div id="data">
+        <div class="section">
+            🏆 LEADERBOARD
+            <div id="leaderboard"></div>
+        </div>
+
+        <div class="section">
+            💬 TOP CHATTERS
+            <div id="chatters"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const socket = io("http://192.168.1.35:3000");
+
+// 🎮 MODE SWITCH
+socket.on("mode", (mode) => {
+
+    document.getElementById("winner").innerText = "";
+    document.getElementById("hangman").innerHTML = "";
+    document.getElementById("number").innerText = "";
+
+    if (mode === "number") {
+        document.getElementById("title").innerText = "GUESS THE NUMBER";
+    }
+
+    if (mode === "hangman") {
+        document.getElementById("title").innerText = "GUESS THE WORD";
+    }
+
+    if (mode === "spam") {
+        document.getElementById("title").innerText = "🔥 SPAM ANYTHING 🔥";
+    }
+});
+
+// 🔢 RANGE
+socket.on("rangeUpdate", (data) => {
+    document.getElementById("number").innerText =
+        data.min + " - " + data.max;
+});
+
+// 🔤 HANGMAN
+socket.on("hangmanUpdate", (data) => {
+
+    let container = document.getElementById("hangman");
+    container.innerHTML = "";
+
+    let words = data.split(" ");
+
+    words.forEach(word => {
+
+        let line = document.createElement("div");
+        line.className = "word";
+
+        for (let char of word) {
+            let span = document.createElement("span");
+            span.className = "letter";
+            span.innerText = char.toUpperCase();
+            line.appendChild(span);
+        }
+
+        container.appendChild(line);
+    });
+});
+
+// 🏆 WINNER
+socket.on("winner", (data) => {
+
+    document.getElementById("hangman").innerHTML = "";
+    document.getElementById("number").innerText = "";
+
+    if (!isNaN(data.answer)) {
+        document.getElementById("number").innerText = data.answer;
+    } else {
+        let container = document.getElementById("hangman");
+        let words = data.answer.toUpperCase().split(" ");
+
+        words.forEach(word => {
+            let line = document.createElement("div");
+            line.className = "word";
+
+            for (let char of word) {
+                let span = document.createElement("span");
+                span.className = "letter";
+                span.innerText = char;
+                line.appendChild(span);
+            }
+
+            container.appendChild(line);
+        });
+    }
+
+    let winnerDiv = document.getElementById("winner");
+    winnerDiv.innerText = data.user.toUpperCase() + " WON";
+
+    winnerDiv.classList.add("winner-animate");
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";
+        winnerDiv.classList.remove("winner-animate");
+    }, 8000);
+});
+
+// 📊 LEADERBOARD
+socket.on("leaderboard", (data) => {
+    let html = "";
+    data.forEach(p => {
+        html += `#${p.rank} ${p.user} (${p.points})<br>`;
+    });
+    document.getElementById("leaderboard").innerHTML = html;
+});
+
+// 💬 CHATTERS
+socket.on("topChatters", (data) => {
+    let html = "";
+    data.forEach(p => {
+        html += `#${p.rank} ${p.user} (${p.count})<br>`;
+    });
+    document.getElementById("chatters").innerHTML = html;
+});
+
+// 🔥 SPAM START
+socket.on("spamStart", () => {
+    document.getElementById("title").innerText =
+        "🔥 SPAM ANYTHING 🔥";
+});
+
+// 🏆 SPAM WINNER
+socket.on("spamEnd", (data) => {
+
+    if (!data.winner) return;
+
+    document.getElementById("hangman").innerHTML = "";
+    document.getElementById("number").innerText = "";
+
+    let winnerDiv = document.getElementById("winner");
+
+    winnerDiv.innerText = data.winner.toUpperCase() + " WON";
+
+    winnerDiv.classList.add("winner-animate");
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";
+        winnerDiv.classList.remove("winner-animate");
+    }, 8000);
+});
+
+socket.on("systemMessage", (msg) => {
+
+    let winnerDiv = document.getElementById("winner");
+
+    winnerDiv.innerText = msg;
+
+    winnerDiv.classList.add("winner-animate");
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";
+        winnerDiv.classList.remove("winner-animate");
+    }, 4000);
+});
+</script>
+
+</body>
+</html>

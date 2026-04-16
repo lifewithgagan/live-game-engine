@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Panel</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+
+<body style="text-align:center; font-family: Arial;">
+
+<h1>🎮 Game Panel</h1>
+
+<input id="username" placeholder="Name">
+<br><br>
+
+<input id="guess" placeholder="Guess / Chat">
+<button onclick="send()">Send</button>
+
+<h2 id="status"></h2>
+<h2 id="hangman"></h2>
+
+
+
+<h2>🏆 Leaderboard</h2>
+<div id="leaderboard"></div>
+
+<h2>💬 Top Chatters</h2>
+<div id="chatters"></div>
+
+<h2>🎡 Wheel</h2>
+<div id="wheel"></div>
+
+<br>
+
+<button onclick="startNumber()">Number</button>
+<button onclick="startHangman()">Hangman</button>
+<button onclick="startSpam()">🔥 Start Spam</button>
+<button onclick="endSpam()">❌ End Spam</button>
+
+<br><br>
+
+<button onclick="showWheel()">🎡 Show Wheel</button>
+<button onclick="spinWheel()">🎯 Spin Wheel</button>
+<button onclick="hideWheel()">❌ Hide Wheel</button>
+<br><br>
+
+<button onclick="resetGame()" style="background:red; color:white; padding:10px;">
+    🔥 RESET FULL SYSTEM
+</button>
+
+<script>
+const socket = io("http://localhost:3000");
+
+function send() {
+    socket.emit("guess", {
+        user: document.getElementById("username").value,
+        guess: document.getElementById("guess").value
+    });
+}
+
+function startNumber(){ socket.emit("startNumber"); }
+function startHangman(){ socket.emit("startHangman"); }
+function startSpam(){ socket.emit("startSpam"); }
+function endSpam(){ socket.emit("endSpam"); }
+
+function showWheel(){ socket.emit("showWheel"); }
+function spinWheel(){ socket.emit("spinWheel"); }
+function hideWheel(){ socket.emit("hideWheel"); }
+function resetGame(){
+    if (confirm("Are you sure you want to RESET everything?")) {
+        socket.emit("resetGame");
+    }
+}
+
+// LEADERBOARD
+socket.on("leaderboard", (data) => {
+    let html = "";
+    data.forEach(p => {
+        html += `<p>#${p.rank} ${p.user} - ${p.points}</p>`;
+    });
+    document.getElementById("leaderboard").innerHTML = html;
+});
+
+socket.on("topChatters", (data) => {
+    let html = "";
+    data.forEach(p => {
+        html += `<p>#${p.rank} ${p.user} (${p.count})</p>`;
+    });
+    document.getElementById("chatters").innerHTML = html;
+});
+
+// WIN
+socket.on("winner", (data) => {
+
+    // 🔥 CLEAR HANGMAN DISPLAY
+    document.getElementById("hangman").innerText = "";
+
+    document.getElementById("status").innerText =
+        data.user + " WON! Answer: " + data.answer;
+});
+
+// SPAM
+socket.on("spamStart", (data) => {
+    document.getElementById("status").innerText =
+        "🔥 SPAM NOW! " + data.emoji;
+});
+
+socket.on("spamEnd", (data) => {
+    document.getElementById("status").innerText =
+        "Spam Winner: " + (data.winner || "No one");
+});
+
+// WHEEL DISPLAY
+socket.on("showWheel", (data) => {
+    let html = "";
+    data.wheel.forEach(u => {
+        html += `<p>${u}</p>`;
+    });
+    document.getElementById("wheel").innerHTML = html;
+});
+
+// FINAL WINNER
+// 🎡 SPIN RESULT (UPDATED)
+socket.on("spinWheel", (data) => {
+    document.getElementById("status").innerText =
+        "🎯 FINAL WINNER: " + data.winner;
+});
+
+// 🎡 HIDE WHEEL
+socket.on("hideWheel", () => {
+    document.getElementById("wheel").innerHTML = "";
+    document.getElementById("status").innerText = "Wheel hidden";
+});
+
+// 🔤 HANGMAN DISPLAY (FIXED)
+socket.on("hangmanUpdate", (data) => {
+
+    let display = "";
+
+    for (let char of data) {
+        if (char === " ") {
+            display += "   "; // space between words
+        } else {
+            display += char.toUpperCase() + " ";
+        }
+    }
+
+    document.getElementById("hangman").innerText = display;
+});
+
+socket.on("resetGame", () => {
+
+    document.getElementById("leaderboard").innerHTML = "";
+    document.getElementById("chatters").innerHTML = "";
+    document.getElementById("wheel").innerHTML = "";
+
+    document.getElementById("status").innerText = "🔥 Stream Reset Done";
+    document.getElementById("hangman").innerText = "";
+
+    document.getElementById("username").value = "";
+    document.getElementById("guess").value = "";
+});
+</script>
+
+</body>
+</html>
