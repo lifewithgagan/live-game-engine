@@ -528,7 +528,10 @@ function processGuess(user, message) {
 
 // 🔌 SOCKET
 io.on("connection", (socket) => {
-
+socket.on("streamerChat", (data) => {
+    console.log("🔥 STREAMER BOT:", data.user, "→", data.message);
+    processGuess(data.user, data.message);
+});
     socket.on("guess", (data) => {
     processGuess(data.user || "Anonymous", data.guess);
 });
