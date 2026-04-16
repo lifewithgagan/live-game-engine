@@ -48,7 +48,7 @@
 </button>
 
 <script>
-const socket = io("http://localhost:3000");
+const socket = io();
 
 function send() {
     socket.emit("guess", {
