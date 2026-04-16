@@ -28,6 +28,7 @@
 
 <h2>🎡 Wheel</h2>
 <div id="wheel"></div>
+<textarea id="wheelText" rows="10" style="width:300px;"></textarea>
 <button onclick="copyWheel()">📋 Copy Wheel Names</button>
 
 <br>
@@ -139,10 +140,15 @@ socket.on("spamEnd", (data) => {
 // WHEEL DISPLAY
 socket.on("showWheel", (data) => {
     let html = "";
+    let text = "";
+
     data.wheel.forEach(u => {
         html += `<p>${u}</p>`;
+        text += u + "\n";
     });
+
     document.getElementById("wheel").innerHTML = html;
+    document.getElementById("wheelText").value = text;
 });
 
 // FINAL WINNER
