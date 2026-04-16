@@ -91,6 +91,12 @@ socket.on("mode", (mode) => {
     }
 });
 
+// 🔢 RANGE DISPLAY (NEW)
+socket.on("rangeUpdate", (data) => {
+    document.getElementById("status").innerText =
+        "🎯 NUMBER GAME: " + data.min + " - " + data.max;
+});
+
 // LEADERBOARD
 socket.on("leaderboard", (data) => {
     let html = "";
