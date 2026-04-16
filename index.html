@@ -71,6 +71,26 @@ function resetGame(){
     }
 }
 
+// 🎮 MODE SYNC (NEW)
+socket.on("mode", (mode) => {
+
+    // CLEAR EVERYTHING FIRST
+    document.getElementById("status").innerText = "";
+    document.getElementById("hangman").innerText = "";
+
+    if (mode === "number") {
+        document.getElementById("status").innerText = "🎯 NUMBER GAME STARTED";
+    }
+
+    if (mode === "hangman") {
+        document.getElementById("status").innerText = "🔤 HANGMAN STARTED";
+    }
+
+    if (mode === "spam") {
+        document.getElementById("status").innerText = "🔥 SPAM ROUND STARTED";
+    }
+});
+
 // LEADERBOARD
 socket.on("leaderboard", (data) => {
     let html = "";
