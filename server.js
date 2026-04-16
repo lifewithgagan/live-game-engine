@@ -8,18 +8,20 @@ app.use(express.static(__dirname));
 app.use(express.json());
 
 // 🔥 RECEIVE CHAT FROM STREAMER.BOT
-app.post("/chat", (req, res) => {
-    const { user, message } = req.body;
+app.get("/chat", (req, res) => {
 
-if (!user || !message) {
-    return res.status(400).send("Invalid data");
-}
+    const user = req.query.user;
+    const guess = req.query.message;
 
-console.log("💬 CHAT:", user, "→", message);
+    if (!user || !guess) {
+        return res.status(400).send("Invalid data");
+    }
 
-processGuess(user, message);
+    console.log("💬 CHAT:", user, "→", guess);
 
-    res.sendStatus(200);
+    processGuess(user, guess);
+
+    res.send("OK");
 });
 
 const server = http.createServer(app);
