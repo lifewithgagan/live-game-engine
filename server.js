@@ -19,7 +19,15 @@ app.get("/chat", (req, res) => {
 
     console.log("💬 CHAT:", user, "→", guess);
 
-    processGuess(user, guess);
+    // 🔥 ALWAYS TRACK ACTIVITY FIRST
+lastMessageTime[user] = Date.now();
+
+// reset warning immediately if active
+if (warnedUsers[user]) {
+    delete warnedUsers[user];
+}
+
+processGuess(user, guess);
 
     res.send("OK");
 });
@@ -410,12 +418,7 @@ function processGuess(user, message) {
 
         participatedThisRound[user] = true;
         // 🔥 TRACK ACTIVITY
-        lastMessageTime[user] = Date.now();
-
-        // reset warning if user becomes active again
-        if (warnedUsers[user]) {
-            delete warnedUsers[user];
-        }
+        
 
         
 
