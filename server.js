@@ -585,12 +585,9 @@ setInterval(() => {
 
     let now = Date.now();
 
-    for (let user in wheel) {
-
-        let username = wheel[user];
+    for (let username of wheel) {
 
         let last = lastMessageTime[username] || 0;
-
         let diff = now - last;
 
         // ⚠️ WARNING AT 60 SEC
@@ -601,8 +598,6 @@ setInterval(() => {
             io.emit("systemMessage",
                 `⚠️ ${username} stay active or lose your spot!`);
         }
-
-        
     }
 
 }, 5000);
