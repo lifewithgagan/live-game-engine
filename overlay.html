@@ -81,14 +81,9 @@
 
         /* 🟡 GAME */
         #game {
-    margin-top: 40px;
+    margin-top: 30px;
     width: 100%;
     text-align: center;
-
-    flex-grow: 1; /* 🔥 THIS IS IMPORTANT */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
         #title {
@@ -138,18 +133,24 @@
 
         /* 📊 DATA */
         #data {
-    margin-top: 20px;
+
+    margin-top: 40px;
+
     width: 100%;
-    font-size: 26px;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 🔥 2 columns */
-    gap: 20px;
+    text-align: center;
 
-    align-items: start;
+    font-size: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
 }
 
 .section {
+
+    width: 48%;
     background: rgba(255,255,255,0.05); /* subtle premium box */
     padding: 15px 20px;
     border-radius: 12px;
