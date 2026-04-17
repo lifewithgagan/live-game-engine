@@ -307,7 +307,7 @@ socket.on("winner", (data) => {
     setTimeout(() => {
         winnerDiv.innerText = "";
         winnerDiv.classList.remove("winner-animate");
-    }, 8000);
+    }, 10000);
 });
 
 // 📊 LEADERBOARD
@@ -353,7 +353,7 @@ socket.on("spamEnd", (data) => {
     setTimeout(() => {
         winnerDiv.innerText = "";
         winnerDiv.classList.remove("winner-animate");
-    }, 8000);
+    }, 10000);
 });
 
 socket.on("systemMessage", (msg) => {
@@ -367,7 +367,7 @@ socket.on("systemMessage", (msg) => {
     setTimeout(() => {
         winnerDiv.innerText = "";
         winnerDiv.classList.remove("winner-animate");
-    }, 4000);
+    }, 6000);
 });
 </script>
 
