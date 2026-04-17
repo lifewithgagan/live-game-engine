@@ -13,10 +13,37 @@
             overflow: hidden;
         }
 
+        #frame {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#safe-area {
+    width: 100%;
+    height: 100%;
+
+    /* 🔥 SAFE ZONES */
+    padding-top: 120px;    /* TOP SAFE */
+    padding-bottom: 150px; /* BOTTOM SAFE */
+    padding-left: 60px;    /* LEFT SAFE */
+    padding-right: 60px;   /* RIGHT SAFE */
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+}
+
+        
+
+
+
         #container {
-            width: 1080px;
-            height: 1920px;
-            margin: auto;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -128,7 +155,10 @@
 
 <body>
 
-<div id="container">
+<div id="frame">
+    <div id="safe-area">
+
+        <div id="container">
 
     <!-- 🔴 TOP -->
     <div id="top">
@@ -310,6 +340,11 @@ socket.on("systemMessage", (msg) => {
     }, 4000);
 });
 </script>
+
+        </div>
+
+    </div>
+</div>
 
 </body>
 </html>
