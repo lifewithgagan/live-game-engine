@@ -38,6 +38,7 @@ let participatedThisRound = {};
 
 // 🎮 GAME STATE
 let game = {
+    winnerDeclared: false,
     mode: "number",
     min: 1,
     max: 100,
@@ -100,6 +101,7 @@ function addToWheel(user) {
 
 // 🎮 NUMBER
 function startNumber() {
+    game.winnerDeclared = false;
     // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
     if (!participatedThisRound[user]) {
@@ -183,7 +185,7 @@ function getFreshWord() {
 
 // 🎮 HANGMAN
 function startHangman() {
-
+game.winnerDeclared = false;
    // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
     if (!participatedThisRound[user]) {
@@ -216,6 +218,7 @@ participatedThisRound = {};
 
 // 🔥 SPAM START
 function startSpam() {
+    game.winnerDeclared = false;
 
     // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
@@ -467,9 +470,10 @@ function processGuess(user, message) {
                 io.emit("topChatters", getTopChatters());
                 }
 
-                if (guess === game.answer && !game.locked) {
-                    handleWin(user);
-                    return;
+                if (guess === game.answer && !game.winnerDeclared) {
+                game.winnerDeclared = true; // 🔥 LOCK IMMEDIATELY
+                handleWin(user);
+                return;
                 }
 
             
@@ -485,21 +489,21 @@ function processGuess(user, message) {
                     roundPlayers[user] = true;
                     io.emit("leaderboard", getLeaderboard());
                     io.emit("topChatters", getTopChatters());
-                }
+                  }
 
-                if (input === game.word && !game.locked) {
-                    
-                    if (requiredNextRound[user]) {
-                    delete requiredNextRound[user];
-                }
+                 if (input === game.word && !game.winnerDeclared) {
 
-            
-                    
-                    handleWin(user);
-                    return;
-                }
+                        game.winnerDeclared = true;
 
-                if (input.length === 1 && /[a-z]/.test(input)) {
+                        if (requiredNextRound[user]) {
+                            delete requiredNextRound[user];
+                        }
+
+                        handleWin(user);
+                        return;
+                    }
+
+                    if (input.length === 1 && /[a-z]/.test(input)) {
                     
                     if (requiredNextRound[user]) {
                     delete requiredNextRound[user];
@@ -514,15 +518,16 @@ function processGuess(user, message) {
                 ) {
                     game.revealed[i] = input;
                 }
-            }
+                }
 
-            io.emit("hangmanUpdate", game.revealed.join(""));
-            }
+                io.emit("hangmanUpdate", game.revealed.join(""));
+                }
 
-            if (!game.revealed.includes("_") && !game.locked) {
+                if (!game.revealed.includes("_") && !game.winnerDeclared) {
+                game.winnerDeclared = true;
                 handleWin(user);
                 return;
-            }
+                }
         }
 
 }
@@ -557,7 +562,7 @@ function handleWin(user) {
     players[user] += 10;
     addToWheel(user);
     // 🔥 MUST PARTICIPATE NEXT ROUND
-requiredNextRound[user] = true;
+    requiredNextRound[user] = true;
 
     console.log("🏆 WINNER:", user);
 
