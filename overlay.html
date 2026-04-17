@@ -140,16 +140,21 @@
         #data {
     margin-top: 20px;
     width: 100%;
-    text-align: center;
-    font-size: 28px;
+    font-size: 26px;
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 🔥 2 columns */
+    gap: 20px;
+
+    align-items: start;
 }
 
-        .section {
-    width: 48%;
-    text-align: left;
+.section {
+    background: rgba(255,255,255,0.05); /* subtle premium box */
+    padding: 15px 20px;
+    border-radius: 12px;
+
+    min-height: 120px; /* 🔥 prevents jumping */
 }
 
         /* 🔥 WINNER ANIMATION */
@@ -304,7 +309,8 @@ socket.on("winner", (data) => {
 socket.on("leaderboard", (data) => {
     let html = "";
     data.forEach(p => {
-        html += `#${p.rank} ${p.user} (${p.points})<br>`;
+        let name = p.user.length > 7 ? p.user.substring(0, 7) + "…" : p.user;
+html += `#${p.rank} ${name} (${p.points})<br>`;
     });
     document.getElementById("leaderboard").innerHTML = html;
 });
@@ -313,7 +319,8 @@ socket.on("leaderboard", (data) => {
 socket.on("topChatters", (data) => {
     let html = "";
     data.forEach(p => {
-        html += `#${p.rank} ${p.user} (${p.count})<br>`;
+       let name = p.user.length > 7 ? p.user.substring(0, 7) + "…" : p.user;
+html += `#${p.rank} ${name} (${p.count})<br>`;
     });
     document.getElementById("chatters").innerHTML = html;
 });
