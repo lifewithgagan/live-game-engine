@@ -228,6 +228,7 @@
     </div>
 
 </div>
+<audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
 const socket = io();
@@ -284,7 +285,6 @@ socket.on("hangmanUpdate", (data) => {
 
 // 🏆 WINNER
 
-<audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 socket.on("winner", (data) => {
 
@@ -295,11 +295,13 @@ setTimeout(() => {
     document.body.classList.remove("flash");
 }, 600);
 
-confetti({
-    particleCount: 120,
-    spread: 80,
-    origin: { y: 0.6 }
-});
+if (typeof confetti !== "undefined") {
+    confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 }
+    });
+}
 
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
