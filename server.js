@@ -590,13 +590,19 @@ setInterval(() => {
         let last = lastMessageTime[username] || 0;
         let diff = now - last;
 
-        // ⚠️ WARNING AT 60 SEC
+        // ⚠️ STAGE 1: WARNING (after 60 sec)
         if (diff > 60000 && !warnedUsers[username]) {
 
             warnedUsers[username] = true;
 
             io.emit("systemMessage",
                 `⚠️ ${username} stay active or lose your spot!`);
+        }
+
+        // ❌ STAGE 2: REMOVE (after 90 sec)
+        if (diff > 90000) {
+
+            removeFromWheel(username, "inactive");
         }
     }
 
