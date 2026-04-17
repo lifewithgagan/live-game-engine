@@ -135,6 +135,16 @@
             margin-top: 20px;
         }
 
+        @keyframes flashWin {
+    0% { background: rgba(255,255,255,0); }
+    50% { background: rgba(255,255,255,0.4); }
+    100% { background: rgba(255,255,255,0); }
+}
+
+.flash {
+    animation: flashWin 0.6s ease;
+}
+
         /* 📊 DATA */
         #data {
 
@@ -273,7 +283,23 @@ socket.on("hangmanUpdate", (data) => {
 });
 
 // 🏆 WINNER
+
+<audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+
 socket.on("winner", (data) => {
+
+    document.getElementById("winSound").play();
+    document.body.classList.add("flash");
+
+setTimeout(() => {
+    document.body.classList.remove("flash");
+}, 600);
+
+confetti({
+    particleCount: 120,
+    spread: 80,
+    origin: { y: 0.6 }
+});
 
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
@@ -375,6 +401,6 @@ socket.on("systemMessage", (msg) => {
 
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>
