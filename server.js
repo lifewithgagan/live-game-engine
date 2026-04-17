@@ -585,12 +585,12 @@ setInterval(() => {
 
     let now = Date.now();
 
-    for (let username of wheel) {
+    for (let username of [...wheel]) {
 
         let last = lastMessageTime[username] || 0;
         let diff = now - last;
 
-        // ⚠️ STAGE 1: WARNING (after 60 sec)
+        // ⚠️ WARNING
         if (diff > 60000 && !warnedUsers[username]) {
 
             warnedUsers[username] = true;
@@ -599,8 +599,8 @@ setInterval(() => {
                 `⚠️ ${username} stay active or lose your spot!`);
         }
 
-        // ❌ STAGE 2: REMOVE (after 90 sec)
-        if (diff > 90000) {
+        // ❌ REMOVE
+        if (diff > 90000 && wheel.includes(username)) {
 
             removeFromWheel(username, "inactive");
         }
