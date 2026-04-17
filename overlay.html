@@ -53,44 +53,57 @@
 
         /* 🔴 TOP */
         #top {
-            text-align: center;
-        }
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        #live {
-            color: red;
-            font-size: 40px;
-            font-weight: bold;
-        }
+#live {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
 
-        #hook {
-            font-size: 75px;
-            font-weight: 900;
-            text-shadow: 0 0 25px #ff00ff;
-        }
+#hook {
+    font-size: 90px;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 0 35px #ff00ff;
+}
 
-        #subhook {
-            font-size: 35px;
-            color: #ff00ff;
-        }
+#subhook {
+    font-size: 32px;
+    color: #ff00ff;
+    margin-top: 10px;
+    opacity: 0.85;
+}
 
         /* 🟡 GAME */
         #game {
-            margin-top: 30px;
-            width: 100%;
-            text-align: center;
-        }
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+
+    flex-grow: 1; /* 🔥 THIS IS IMPORTANT */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
         #title {
-            font-size: 50px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px #00ffff;
-        }
+    font-size: 42px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
 
         #number {
-            font-size: 120px;
-            color: #00ffff;
-            text-shadow: 0 0 30px #00ffff;
-        }
+    font-size: 140px;
+    color: #00ffff;
+    text-shadow: 0 0 40px #00ffff;
+    margin-top: 10px;
+}
 
         /* 🔤 HANGMAN */
         #hangman {
@@ -125,14 +138,19 @@
 
         /* 📊 DATA */
         #data {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 35px;
-        }
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+
+    display: flex;
+    justify-content: space-between;
+}
 
         .section {
-            margin: 15px 0;
-        }
+    width: 48%;
+    text-align: left;
+}
 
         /* 🔥 WINNER ANIMATION */
         @keyframes winnerPop {
