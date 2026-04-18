@@ -279,18 +279,15 @@ function endSpam() {
     }
 
     if (winner) {
-        players[winner] += 10;
-        addToWheel(winner);
-        requiredNextRound[winner] = true;
-        console.log("🏆 SPAM WINNER:", winner);
 
-        io.emit("leaderboard", getLeaderboard());
-    }
+    game.winnerDeclared = true; // ✅ prevent duplicates
 
-    io.emit("spamEnd", {
-        winner,
-        leaderboard: getLeaderboard()
-    });
+    console.log("🏆 SPAM WINNER:", winner);
+
+    handleWin(winner); // ✅ USE SAME SYSTEM AS NUMBER/HANGMAN
+}
+
+    
 
     game.locked = false;
 }
