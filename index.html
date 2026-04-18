@@ -17,6 +17,7 @@
 
 <h2 id="status"></h2>
 <h2 id="hangman"></h2>
+<h3 id="adminAnswer" style="color:gray;"></h3>
 
 
 
@@ -52,6 +53,31 @@
 <script>
 const socket = io();
 
+// ✅ WAIT FOR CONNECTION FIRST
+socket.on("connect", () => {
+
+    console.log("🟢 Connected as admin");
+
+    socket.emit("registerAdmin");
+
+});
+
+// 🔐 ADMIN ONLY ANSWER DISPLAY
+socket.on("adminAnswer", (data) => {
+
+    if (data.mode === "number") {
+        document.getElementById("adminAnswer").innerText =
+            "(Answer: " + data.answer + ")";
+    }
+
+    if (data.mode === "hangman") {
+        document.getElementById("adminAnswer").innerText =
+            "(Word: " + data.answer + ")";
+    }
+
+});
+
+
 function send() {
     socket.emit("guess", {
         user: document.getElementById("username").value,
@@ -77,6 +103,7 @@ function resetGame(){
 socket.on("mode", (mode) => {
 
     // CLEAR EVERYTHING FIRST
+    document.getElementById("adminAnswer").innerText = "";
     document.getElementById("status").innerText = "";
     document.getElementById("hangman").innerText = "";
 

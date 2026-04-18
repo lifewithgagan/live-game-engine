@@ -42,8 +42,11 @@ let lastMessageTime = {};
 let warnedUsers = {};
 let requiredNextRound = {}; // users who must participate next round
 let participatedThisRound = {};
+let adminSockets = new Set();
 
 
+
+let latestAdminAnswer = null;
 // 🎮 GAME STATE
 let game = {
     winnerDeclared: false,
@@ -152,14 +155,14 @@ participatedThisRound = {};
     io.emit("rangeUpdate", { min, max });
 
     // 🔐 SEND ANSWER ONLY TO ADMIN
-    for (let [id, socket] of io.of("/").sockets) {
-        if (socket.isAdmin) {
-            socket.emit("adminAnswer", {
-                mode: "number",
-                answer: game.answer
-            });
-        }
-    }
+    latestAdminAnswer = {
+    mode: "number",
+    answer: game.answer
+};
+
+adminSockets.forEach(sock => {
+    sock.emit("adminAnswer", latestAdminAnswer);
+});
 
 }
 
@@ -239,14 +242,14 @@ participatedThisRound = {};
     io.emit("hangmanUpdate", game.revealed.join(""));
 
         // 🔐 SEND WORD ONLY TO ADMIN
-    for (let [id, socket] of io.of("/").sockets) {
-        if (socket.isAdmin) {
-            socket.emit("adminAnswer", {
-                mode: "hangman",
-                answer: game.word
-            });
-        }
-    }
+    latestAdminAnswer = {
+    mode: "hangman",
+    answer: game.word
+};
+
+adminSockets.forEach(sock => {
+    sock.emit("adminAnswer", latestAdminAnswer);
+});
 }
 
 // 🔥 SPAM START
@@ -586,14 +589,22 @@ io.on("connection", (socket) => {
 
     // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
 
-    socket.on("registerAdmin", () => {
+            socket.on("registerAdmin", () => {
+    socket.isAdmin = true;
+    adminSockets.add(socket);
 
-        socket.isAdmin = true;
+    console.log("🟢 Admin connected");
 
-        console.log("🟢 Admin connected");
+    // ✅ SEND LAST ANSWER IF EXISTS
+    if (latestAdminAnswer) {
+        socket.emit("adminAnswer", latestAdminAnswer);
+    }
+});
 
-    });
-
+        // CLEANUP ON DISCONNECT
+        socket.on("disconnect", () => {
+            adminSockets.delete(socket);
+        });
     
     socket.on("streamerChat", (data) => {
     console.log("🔥 STREAMER BOT:", data.user, "→", data.message);
