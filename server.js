@@ -283,7 +283,7 @@ function endSpam() {
 
     game.winnerDeclared = true; // ✅ prevent duplicates
 
-    console.log("🏆 SPAM WINNER:", winner);
+    console.log("🔥 CHAT KING", winner);
 
     handleWin(winner); // ✅ USE SAME SYSTEM AS NUMBER/HANGMAN
 }
