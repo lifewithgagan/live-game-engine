@@ -562,7 +562,19 @@ game.spamScores[user]++;
 
 // 🔌 SOCKET
 io.on("connection", (socket) => {
-socket.on("streamerChat", (data) => {
+
+    // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
+
+    socket.on("registerAdmin", () => {
+
+        socket.isAdmin = true;
+
+        console.log("🟢 Admin connected");
+
+    });
+
+    
+    socket.on("streamerChat", (data) => {
     console.log("🔥 STREAMER BOT:", data.user, "→", data.message);
     processGuess(data.user, data.message);
 });
