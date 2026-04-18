@@ -266,7 +266,8 @@ function endSpam() {
     if (game.mode !== "spam") return;
 
     game.locked = true;
-    game.mode = "ended"; // 🔥 IMPORTANT
+    game.mode = "spam";
+    
 
     let winner = null;
     let max = 0;
@@ -595,11 +596,21 @@ function handleWin(user) {
     // 🔥 FIX → EMIT UPDATED LEADERBOARD IMMEDIATELY
     io.emit("leaderboard", getLeaderboard());
 
-    io.emit("winner", {
-        user,
-        answer: game.mode === "hangman" ? game.word : game.answer,
-        leaderboard: getLeaderboard()
-    });
+    let answer = null;
+
+if (game.mode === "hangman") {
+    answer = game.word;
+} else if (game.mode === "number") {
+    answer = game.answer;
+} else if (game.mode === "spam") {
+    answer = "🏆 SPAM WINNER";
+}
+
+io.emit("winner", {
+    user,
+    answer,
+    leaderboard: getLeaderboard()
+});
 setTimeout(() => {
     game.locked = false;
 }, 2000);
