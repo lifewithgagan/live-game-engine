@@ -150,6 +150,17 @@ participatedThisRound = {};
     // 🔥 SEND MODE + RANGE TO OVERLAY
     io.emit("mode", "number");
     io.emit("rangeUpdate", { min, max });
+
+    // 🔐 SEND ANSWER ONLY TO ADMIN
+    for (let [id, socket] of io.of("/").sockets) {
+        if (socket.isAdmin) {
+            socket.emit("adminAnswer", {
+                mode: "number",
+                answer: game.answer
+            });
+        }
+    }
+
 }
 
 function getFreshWord() {
@@ -226,6 +237,16 @@ participatedThisRound = {};
 
     io.emit("mode", "hangman");
     io.emit("hangmanUpdate", game.revealed.join(""));
+
+        // 🔐 SEND WORD ONLY TO ADMIN
+    for (let [id, socket] of io.of("/").sockets) {
+        if (socket.isAdmin) {
+            socket.emit("adminAnswer", {
+                mode: "hangman",
+                answer: game.word
+            });
+        }
+    }
 }
 
 // 🔥 SPAM START
