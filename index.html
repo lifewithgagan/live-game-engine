@@ -66,6 +66,8 @@ socket.on("connect", () => {
 // 🔐 ADMIN ONLY ANSWER DISPLAY
 socket.on("adminAnswer", (data) => {
 
+    console.log("ADMIN ANSWER RECEIVED:", data);
+    
     if (data.mode === "number") {
         document.getElementById("adminAnswer").innerText =
             "(Answer: " + data.answer + ")";

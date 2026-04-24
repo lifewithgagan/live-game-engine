@@ -339,6 +339,12 @@ function startQA() {
     });
 
     // 🔐 SEND ANSWER TO ADMIN ONLY
+    if (adminSockets.size === 0) {
+    console.log("❌ NO ADMIN CONNECTED");
+    } else {
+        console.log("🟢 Sending answer to admin:", game.answer);
+    }
+
     adminSockets.forEach(sock => {
         sock.emit("adminAnswer", {
             mode: "qa",
