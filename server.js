@@ -445,6 +445,8 @@ function spinWheel() {
  // 🔥 RESET SYSTEM
     function resetGame() {
 
+        
+
         participatedThisRound = {};
 
     console.log("🔥 RESETTING STREAM...");
@@ -462,6 +464,8 @@ function spinWheel() {
     game.locked = false;
     game.spamScores = {};
     game.mode = "number";
+
+    latestAdminAnswer = null;
 
     // 🗂 CLEAR FILE
     try {
@@ -706,8 +710,8 @@ io.on("connection", (socket) => {
     console.log("🟢 Admin connected");
 
     // ✅ SEND LAST ANSWER IF EXISTS
-    if (latestAdminAnswer) {
-        socket.emit("adminAnswer", latestAdminAnswer);
+    if (latestAdminAnswer && game.mode !== "number") {
+    socket.emit("adminAnswer", latestAdminAnswer);
     }
 });
 
