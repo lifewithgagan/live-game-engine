@@ -59,7 +59,11 @@ let game = {
     locked: false,
 
     targetEmoji: "",
-    spamScores: {}
+    spamScores: {},
+
+    // 🧠 Q&A MODE
+    question: "",
+    qaAnswer: ""
 };
 
 // 🏆 DATA
@@ -209,6 +213,54 @@ function getFreshWord() {
     return word;
 }
 
+function getFreshQuestion() {
+
+    // 📄 READ ALL QUESTIONS
+    let lines = fs.readFileSync("questions.txt", "utf-8")
+        .split("\n")
+        .map(l => l.trim())
+        .filter(l => l.length > 0);
+
+    // 📄 LOAD USED QUESTIONS
+    let used = {};
+    try {
+        used = JSON.parse(fs.readFileSync("usedQuestions.json"));
+    } catch {
+        used = {};
+    }
+
+    let now = Date.now();
+    let FIVE_DAYS = 5 * 24 * 60 * 60 * 1000;
+
+    // 🔥 FILTER FRESH QUESTIONS
+    let available = lines.filter(line => {
+        if (!used[line]) return true;
+        return (now - used[line]) > FIVE_DAYS;
+    });
+
+    // ⚠️ FALLBACK IF ALL USED
+    if (available.length === 0) {
+        console.log("⚠️ All questions used. Resetting...");
+        available = lines;
+        used = {};
+    }
+
+    // 🎯 PICK RANDOM LINE
+    let picked = available[Math.floor(Math.random() * available.length)];
+
+    // SPLIT QUESTION & ANSWER
+    let [question, answer] = picked.split("|");
+
+    // 💾 SAVE USAGE
+    used[picked] = now;
+    fs.writeFileSync("usedQuestions.json", JSON.stringify(used, null, 2));
+
+    return {
+        question: question.trim(),
+        answer: answer.trim()
+    };
+}
+
 // 🎮 HANGMAN
 function startHangman() {
 game.winnerDeclared = false;
@@ -250,6 +302,49 @@ participatedThisRound = {};
 adminSockets.forEach(sock => {
     sock.emit("adminAnswer", latestAdminAnswer);
 });
+}
+
+function startQA() {
+
+    game.winnerDeclared = false;
+
+    // ✅ REMOVE PEOPLE WHO MISSED LAST ROUND
+    for (let user in requiredNextRound) {
+        if (!participatedThisRound[user]) {
+            removeFromWheel(user, "missed");
+        }
+    }
+
+    // 🔄 RESET ROUND TRACKING
+    requiredNextRound = {};
+    participatedThisRound = {};
+
+    game.mode = "qa";
+    game.locked = false;
+    roundPlayers = {};
+
+    // 🎯 GET QUESTION + ANSWER
+    let qa = getFreshQuestion();
+
+    game.question = qa.question;
+    game.answer = qa.answer.toLowerCase(); // IMPORTANT
+
+    console.log("🧠 QUESTION:", game.question);
+    console.log("✅ ANSWER:", game.answer);
+
+    // 📡 SEND TO OVERLAY
+    io.emit("mode", "qa");
+    io.emit("qaQuestion", {
+        question: game.question
+    });
+
+    // 🔐 SEND ANSWER TO ADMIN ONLY
+    adminSockets.forEach(sock => {
+        sock.emit("adminAnswer", {
+            mode: "qa",
+            answer: game.answer
+        });
+    });
 }
 
 // 🔥 SPAM START
@@ -617,6 +712,7 @@ io.on("connection", (socket) => {
     socket.on("startNumber", startNumber);
     socket.on("startHangman", startHangman);
     socket.on("startSpam", startSpam);
+    socket.on("startQA", startQA);
     socket.on("endSpam", endSpam);
     socket.on("showWheel", showWheel);
     socket.on("spinWheel", spinWheel);

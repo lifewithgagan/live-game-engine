@@ -36,6 +36,7 @@
 
 <button onclick="startNumber()">Number</button>
 <button onclick="startHangman()">Hangman</button>
+<button onclick="startQA()">❓ Q&A</button>
 <button onclick="startSpam()">🔥 Start Spam</button>
 <button onclick="endSpam()">❌ End Spam</button>
 
@@ -87,6 +88,7 @@ function send() {
 
 function startNumber(){ socket.emit("startNumber"); }
 function startHangman(){ socket.emit("startHangman"); }
+function startQA(){ socket.emit("startQA"); }
 function startSpam(){ socket.emit("startSpam"); }
 function endSpam(){ socket.emit("endSpam"); }
 
