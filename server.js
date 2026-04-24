@@ -737,6 +737,10 @@ io.on("connection", (socket) => {
 
 // 🏆 WIN
 function handleWin(user) {
+
+    lastMessageTime[user] = Date.now();
+    delete warnedUsers[user];
+    
     game.locked = true;
 
     players[user] += 10;
