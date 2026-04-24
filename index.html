@@ -120,6 +120,17 @@ socket.on("mode", (mode) => {
     if (mode === "spam") {
         document.getElementById("status").innerText = "🔥 SPAM ROUND STARTED";
     }
+
+    if (mode === "qa") {
+    document.getElementById("status").innerText = "❓ Q&A ROUND STARTED";
+}
+});
+
+socket.on("qaQuestion", (data) => {
+
+    document.getElementById("status").innerText =
+        "❓ " + data.question;
+
 });
 
 // 🔢 RANGE DISPLAY (NEW)
