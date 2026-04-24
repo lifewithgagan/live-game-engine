@@ -68,6 +68,12 @@ socket.on("adminAnswer", (data) => {
 
     console.log("ADMIN ANSWER RECEIVED:", data);
 
+    // ✅ CLEAR CASE
+    if (data.mode === "clear") {
+        document.getElementById("adminAnswer").innerText = "";
+        return;
+    }
+
     if (data.mode === "number") {
         document.getElementById("adminAnswer").innerText =
             "(Answer: " + data.answer + ")";
@@ -82,7 +88,6 @@ socket.on("adminAnswer", (data) => {
         document.getElementById("adminAnswer").innerText =
             "(Answer: " + data.answer + ")";
     }
-
 });
 
 
