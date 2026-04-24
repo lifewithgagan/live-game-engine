@@ -688,6 +688,15 @@ game.spamScores[user]++;
 // 🔌 SOCKET
 io.on("connection", (socket) => {
 
+    setTimeout(() => {
+    if (socket.isAdmin) {
+        socket.emit("adminAnswer", {
+            mode: game.mode,
+            answer: game.mode === "hangman" ? game.word : game.answer
+        });
+    }
+}, 1000);
+
     // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
 
             socket.on("registerAdmin", () => {
