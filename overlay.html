@@ -25,6 +25,10 @@
 
     height: 1920px;  /* 🔥 LOCK HEIGHT */
 
+     transform: scale(0.5625); /* 🔥 FIXED SCALE */
+
+    transform-origin: center top;
+
     margin: 0 auto;
 
     /* 🔥 SAFE ZONES */
@@ -224,7 +228,7 @@
                 display: flex;
 
                 width: 1920px;   /* 🔥 FORCE WIDTH */
-                height: 1920px;  /* keep vertical crop safe */
+                height: 1080px;  /* keep vertical crop safe */
 
                 margin: 0 auto;  /* center inside OBS */
             }
@@ -239,8 +243,13 @@
         /* CENTER PANEL */
         #center-panel {
             width: 1080px;
+            height: 100%;
+
             display: flex;
             justify-content: center;
+            align-items: center;
+
+            overflow: hidden; /* 🔥 critical */
         }
 
         /* RIGHT PANEL */
