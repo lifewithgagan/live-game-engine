@@ -240,6 +240,10 @@ socket.on("mode", (mode) => {
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
 
+    if (mode === "qa") {
+    document.getElementById("title").innerText = "❓ ANSWER FAST";
+    }
+
     if (mode === "number") {
         document.getElementById("title").innerText = "GUESS THE NUMBER";
     }
@@ -337,6 +341,18 @@ if (typeof confetti !== "undefined") {
         winnerDiv.classList.remove("winner-animate");
     }, 10000);
 });
+
+socket.on("qaQuestion", (data) => {
+
+    // Clear other game UI
+    document.getElementById("number").innerText = "";
+    document.getElementById("hangman").innerHTML = "";
+
+    // Show question in BIG format
+    document.getElementById("number").innerText = data.question;
+
+});
+
 
 // 📊 LEADERBOARD
 socket.on("leaderboard", (data) => {
