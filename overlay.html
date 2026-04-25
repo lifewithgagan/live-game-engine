@@ -37,17 +37,22 @@
     justify-content: center;
 }
 
-#question {
-    font-size: 60px;
-    max-width: 90%;
-    line-height: 1.2;
-    text-align: center;
+        #question {
+            font-size: 60px;
+            max-width: 80%;
+            line-height: 1.2;
 
-    color: #00ffff;
-    text-shadow: 0 0 20px #00ffff;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
 
-    word-wrap: break-word;
-}
+            word-wrap: break-word;
+
+            /* 🔥 FIX ALIGNMENT */
+            text-align: center;
+            margin: 0 auto;
+
+            display: block;
+        }
 
         
 
@@ -96,9 +101,13 @@
         #game {
     margin-top: 30px;
     width: 100%;
+
     text-align: center;
-    min-height: 300px;
-}
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 THIS IS KEY */
+        }
 
         #title {
     font-size: 50px;
