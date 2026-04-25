@@ -37,6 +37,18 @@
     justify-content: center;
 }
 
+#question {
+    font-size: 60px;
+    max-width: 90%;
+    line-height: 1.2;
+    text-align: center;
+
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff;
+
+    word-wrap: break-word;
+}
+
         
 
 
@@ -85,6 +97,7 @@
     margin-top: 30px;
     width: 100%;
     text-align: center;
+    min-height: 300px;
 }
 
         #title {
@@ -208,6 +221,7 @@
     <!-- 🟡 GAME -->
     <div id="game">
         <div id="title">GAME</div>
+        <div id="question"></div>
 
         <div id="number"></div>
         <div id="hangman"></div>
@@ -239,6 +253,7 @@ socket.on("mode", (mode) => {
     document.getElementById("winner").innerText = "";
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
+    document.getElementById("question").innerText = "";
 
     if (mode === "qa") {
     document.getElementById("title").innerText = "❓ ANSWER FAST";
@@ -349,7 +364,7 @@ socket.on("qaQuestion", (data) => {
     document.getElementById("hangman").innerHTML = "";
 
     // Show question in BIG format
-    document.getElementById("number").innerText = data.question;
+    document.getElementById("question").innerText = data.question;
 
 });
 
