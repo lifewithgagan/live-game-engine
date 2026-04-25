@@ -597,6 +597,40 @@ game.spamScores[user]++;
                     
              }
 
+                // ❓ Q&A MODE
+                if (game.mode === "qa") {
+
+                    // ✅ PARTICIPATION TRACK
+                    participatedThisRound[user] = true;
+
+                    if (requiredNextRound[user]) {
+                        delete requiredNextRound[user];
+                    }
+
+                    // ✅ GIVE +2 ONLY ONCE PER ROUND
+                    if (!roundPlayers[user]) {
+                        players[user] += 2;
+                        roundPlayers[user] = true;
+                        io.emit("leaderboard", getLeaderboard());
+                    }
+
+                    // 🎯 CHECK ANSWER (EXACT MATCH, CASE INSENSITIVE)
+                    if (input === game.answer) {
+
+                        game.winnerDeclared = true;
+
+                        console.log("🏆 Q&A WINNER:", user);
+
+                        handleWin(user);
+                        return;
+                    }
+
+                    return; // 🔥 IMPORTANT: stop further checks
+                }
+
+
+
+
                 // NUMBER
                 if (game.mode === "number") {
 
