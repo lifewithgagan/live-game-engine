@@ -14,8 +14,7 @@
         }
 
         #frame {
-    width: 100vw;
-    height: 100vh;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +86,8 @@
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
+
+
 
 #hook {
     font-size: 90px;
@@ -248,57 +249,78 @@
             background: rgba(255, 0, 255, 0.05);
             border-left: 2px solid rgba(255,0,255,0.2);
         }
+
+        #scale-wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#layout {
+    width: 1920px;
+    height: 1920px;
+
+    transform-origin: center center;
+}
+
+
     </style>
 </head>
 
 <body>
+<div id="scale-wrapper">
+    <div id="layout">
 
-<div id="layout">
+        <div id="left-panel"></div>
 
-    <div id="left-panel"></div>
+        <div id="center-panel">
+            <div id="safe-area">
+                <div id="container">
 
-    <div id="center-panel">
-        <div id="safe-area">
-            <div id="container">
-
-                <!-- 🔴 TOP -->
-                <div id="top">
-                    <div id="live">🔴 LIVE</div>
-                    <div id="hook">GUESS & WIN ₹100</div>
-                    <div id="subhook">TYPE IN CHAT NOW</div>
-                </div>
-
-                <!-- 🟡 GAME -->
-                <div id="game">
-                    <div id="title">GAME</div>
-                    <div id="question"></div>
-
-                    <div id="number"></div>
-                    <div id="hangman"></div>
-                    <div id="winner"></div>
-                </div>
-
-                <!-- 📊 DATA -->
-                <div id="data">
-                    <div class="section">
-                        🏆 LEADERBOARD
-                        <div id="leaderboard"></div>
+                    <!-- 🔴 TOP -->
+                    <div id="top">
+                        <div id="live">🔴 LIVE</div>
+                        <div id="hook">GUESS & WIN ₹100</div>
+                        <div id="subhook">TYPE IN CHAT NOW</div>
                     </div>
 
-                    <div class="section">
-                        💬 TOP CHATTERS
-                        <div id="chatters"></div>
-                    </div>
-                </div>
+                    <!-- 🟡 GAME -->
+                    <div id="game">
+                        <div id="title">GAME</div>
+                        <div id="question"></div>
 
+                        <div id="number"></div>
+                        <div id="hangman"></div>
+                        <div id="winner"></div>
+                    </div>
+
+                    <!-- 📊 DATA -->
+                    <div id="data">
+                        <div class="section">
+                            🏆 LEADERBOARD
+                            <div id="leaderboard"></div>
+                        </div>
+
+                        <div class="section">
+                            💬 TOP CHATTERS
+                            <div id="chatters"></div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
+        <div id="right-panel"></div>
+
     </div>
-
-    <div id="right-panel"></div>
-
 </div>
-<audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
 const socket = io();
@@ -484,6 +506,21 @@ socket.on("systemMessage", (msg) => {
         winnerDiv.classList.remove("winner-animate");
     }, 6000);
 });
+
+function scaleLayout() {
+
+    const layout = document.getElementById("layout");
+
+    const scaleX = window.innerWidth / 1920;
+    const scaleY = window.innerHeight / 1920;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    layout.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("resize", scaleLayout);
+window.addEventListener("load", scaleLayout);
 </script>
 
         </div>
