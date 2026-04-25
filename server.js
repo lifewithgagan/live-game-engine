@@ -795,6 +795,8 @@ if (game.mode === "hangman") {
     answer = game.answer;
 } else if (game.mode === "spam") {
     answer = "🔥 CHAT KING";
+} else if (game.mode === "qa") {
+    answer = game.answer;
 }
 
 io.emit("winner", {
