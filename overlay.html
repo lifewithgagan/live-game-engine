@@ -212,28 +212,31 @@
         }
 
                 #layout {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-        }
+                display: flex;
+
+                width: 1920px;   /* 🔥 FORCE WIDTH */
+                height: 1920px;  /* keep vertical crop safe */
+
+                margin: 0 auto;  /* center inside OBS */
+            }
 
         /* LEFT PANEL */
         #left-panel {
-            width: 656px;
+            width: 420px;
             background: rgba(0, 255, 255, 0.05);
             border-right: 2px solid rgba(0,255,255,0.2);
         }
 
         /* CENTER PANEL */
         #center-panel {
-            width: 608px;
+            width: 1080px;
             display: flex;
             justify-content: center;
         }
 
         /* RIGHT PANEL */
         #right-panel {
-            width: 656px;
+            width: 420px;
             background: rgba(255, 0, 255, 0.05);
             border-left: 2px solid rgba(255,0,255,0.2);
         }
