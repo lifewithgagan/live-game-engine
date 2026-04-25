@@ -259,30 +259,16 @@
             border-left: 2px solid rgba(255,0,255,0.2);
         }
 
-        #scale-wrapper {
-    width: 100vw;
-    height: 100vh;
+        
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    overflow: hidden;
-}
-
-#layout {
-    width: 1920px;
-    height: 1920px;
-
-    transform-origin: center center;
-}
 
 
     </style>
 </head>
 
 <body>
-<div id="scale-wrapper">
+
     <div id="layout">
 
         <div id="left-panel"></div>
@@ -328,7 +314,7 @@
         <div id="right-panel"></div>
 
     </div>
-</div>
+
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
@@ -516,20 +502,7 @@ socket.on("systemMessage", (msg) => {
     }, 6000);
 });
 
-function scaleLayout() {
 
-    const layout = document.getElementById("layout");
-
-    const scaleX = window.innerWidth / 1920;
-    const scaleY = window.innerHeight / 1920;
-
-    const scale = Math.min(scaleX, scaleY);
-
-    layout.style.transform = `scale(${scale})`;
-}
-
-window.addEventListener("resize", scaleLayout);
-window.addEventListener("load", scaleLayout);
 </script>
 
         </div>
