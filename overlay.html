@@ -67,7 +67,7 @@
         #container {
             width: 100%;
 
-            max-width: 1000px; /* 🔥 prevents edge overflow */
+            max-width: 900px; /* 🔥 prevents edge overflow */
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -193,13 +193,16 @@
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: center;
+
+    gap: 20px;
 
 }
 
 .section {
 
-    width: 48%;
+    width: 45%;
+    max-width: 400px;
     background: rgba(255,255,255,0.05); /* subtle premium box */
     padding: 15px 20px;
     border-radius: 12px;
@@ -230,7 +233,7 @@
                 width: 1920px;
                 height: 1920px;
 
-                transform-origin: top center;
+                transform-origin: center center;
             }
 
         /* LEFT PANEL */
