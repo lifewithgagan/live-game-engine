@@ -24,11 +24,9 @@
     width: 1080px;
     height: 1920px;
 
-    transform-origin: center center;
-
     margin: 0 auto;
 
-    padding-top: 60px;
+    padding-top: 40px;   /* 🔥 slightly reduced */
     padding-bottom: 150px;
     padding-left: 60px;
     padding-right: 60px;
@@ -37,7 +35,6 @@
 
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 🔥 important */
 }
 
         #question {
@@ -251,16 +248,17 @@
 
         /* CENTER PANEL */
         #center-panel {
-            width: 1080px;
-            height: 100%;
+    width: 1080px;
+    height: 100%;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    display: flex;
+    justify-content: center;
 
-            overflow: hidden; /* 🔥 critical */
-            position: relative;
-        }
+    align-items: flex-start;   /* 🔥 THIS FIXES TOP CUT */
+
+    overflow: hidden;
+    position: relative;
+}
 
         /* RIGHT PANEL */
         #right-panel {
