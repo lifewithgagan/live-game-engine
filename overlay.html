@@ -98,7 +98,15 @@
 
 
 #hook {
-    font-size: 90px;
+    font-size:  clamp(48px, 6vw, 70px);   /* 🔥 reduced */
+
+    max-width: 90%;
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    word-wrap: break-word;
     font-weight: 900;
     line-height: 1.1;
     text-shadow: 0 0 35px #ff00ff;
@@ -185,29 +193,23 @@
 }
 
         /* 📊 DATA */
-        #data {
-
-    margin-top: 40px;
-
+       #data {
+    margin-top: 30px;
     width: 100%;
 
-    text-align: center;
-
-    font-size: 30px;
-
     display: flex;
-
     justify-content: center;
+    align-items: center;
 
     gap: 20px;
-    flex-wrap: wrap;
 
+    flex-wrap: nowrap; /* 🔥 FORCE SIDE-BY-SIDE */
 }
 
 .section {
 
-    width: 100%;
-    max-width: 350px;
+    width: 48%;
+    max-width: 320px;
     background: rgba(255,255,255,0.05); /* subtle premium box */
     padding: 15px 20px;
     border-radius: 12px;
