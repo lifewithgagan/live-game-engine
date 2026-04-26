@@ -25,7 +25,7 @@
 
     height: 1920px;  /* 🔥 LOCK HEIGHT */
 
-     transform: scale(0.5625); /* 🔥 FIXED SCALE */
+     
 
     transform-origin: center center;
 
@@ -224,13 +224,13 @@
             animation: winnerPop 0.6s ease, glowPulse 1.5s infinite;
         }
 
-                #layout {
+               #layout {
                 display: flex;
 
-                width: 1920px;   /* 🔥 FORCE WIDTH */
-                height: 1080px;  /* keep vertical crop safe */
+                width: 1920px;
+                height: 1920px;
 
-                margin: 0 auto;  /* center inside OBS */
+                transform-origin: top center;
             }
 
         /* LEFT PANEL */
@@ -261,7 +261,16 @@
         }
 
         
+        #scale-wrapper {
+            width: 100vw;
+            height: 100vh;
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
 
 
 
@@ -269,7 +278,7 @@
 </head>
 
 <body>
-
+    <div id="scale-wrapper">
     <div id="layout">
 
         <div id="left-panel"></div>
@@ -314,6 +323,7 @@
 
         <div id="right-panel"></div>
 
+    </div>
     </div>
 
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
@@ -503,6 +513,19 @@ socket.on("systemMessage", (msg) => {
     }, 6000);
 });
 
+function scaleLayout() {
+    const layout = document.getElementById("layout");
+
+    const scaleX = window.innerWidth / 1920;
+    const scaleY = window.innerHeight / 1080;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    layout.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("resize", scaleLayout);
+window.addEventListener("load", scaleLayout);
 
 </script>
 
