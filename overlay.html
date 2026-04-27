@@ -595,11 +595,7 @@ socket.on("wheelList", (data) => {
     list.innerHTML = html || "No players yet";
 });
 
-document.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() === "w") {
-        socket.emit("toggleWheelList");
-    }
-});
+
 
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {

@@ -46,6 +46,13 @@
 <button onclick="spinWheel()">🎯 Spin Wheel</button>
 <button onclick="hideWheel()">❌ Hide Wheel</button>
 <br><br>
+<br><br>
+
+<button onclick="toggleWheelList()" style="background:#00ffff; padding:10px;">
+    🎡 Toggle Wheel List (Overlay)
+</button>
+
+<h3 id="wheelListStatus" style="color:gray;">Wheel List: Hidden</h3>
 
 <button onclick="resetGame()" style="background:red; color:white; padding:10px;">
     🔥 RESET FULL SYSTEM
@@ -53,6 +60,21 @@
 
 <script>
 const socket = io();
+
+function toggleWheelList() {
+    socket.emit("toggleWheelList");
+}
+
+socket.on("wheelListVisibility", (visible) => {
+    document.getElementById("wheelListStatus").innerText =
+        "Wheel List: " + (visible ? "VISIBLE" : "HIDDEN");
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "w") {
+        toggleWheelList();
+    }
+});
 
 // ✅ WAIT FOR CONNECTION FIRST
 socket.on("connect", () => {
