@@ -114,6 +114,16 @@
             text-shadow: 0 0 35px #ff00ff;
         }
 
+        #hook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hook .price {
+    margin-top: 5px;
+}
+
 #subhook {
     font-size: 32px;
     color: #ff00ff;
@@ -181,20 +191,27 @@
 
         /* 🏆 WINNER */
         #winner {
-            position: absolute;
+                position: absolute;
 
-            top: 50%;
-            left: 50%;
+                top: 50%;
+                left: 50%;
 
-            transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
 
-            font-size: 60px; /* 🔥 reduced */
+                font-size: 60px;
 
-            color: gold;
-            text-shadow: 0 0 25px gold;
+                color: gold;
+                text-shadow: 0 0 25px gold;
 
-            pointer-events: none; /* prevents blocking UI */
-        }
+                padding: 20px 40px;
+                border-radius: 12px;
+
+                background: rgba(0, 0, 0, 0.85); /* 🔥 THIS IS THE MAGIC */
+
+                pointer-events: none;
+
+                z-index: 10; /* 🔥 ensures it sits above everything */
+            }
 
         #facecam-space {
             height: 220px;
@@ -209,6 +226,27 @@
 
 .flash {
     animation: flashWin 0.6s ease;
+}
+
+#side-data {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    justify-content: flex-start;
+}
+
+#right-panel .section {
+    width: 100%;
+    max-width: 100%;
+
+    background: rgba(255,255,255,0.05);
+    padding: 12px 16px;
+    border-radius: 12px;
+
+    text-align: center;
 }
 
         /* 📊 DATA */
@@ -328,7 +366,10 @@
                     <!-- 🔴 TOP -->
                     <div id="top">
                         <div id="live">🔴 LIVE</div>
-                        <div id="hook">GUESS & WIN ₹100</div>
+                        <div id="hook">
+                            <div>GUESS & WIN</div>
+                            <div class="price">₹100</div>
+                        </div>
                         <div id="subhook">TYPE IN CHAT NOW</div>
                     </div>
 
@@ -344,8 +385,15 @@
 
                     
 
-                    <!-- 📊 DATA -->
-                    <div id="data">
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <div id="right-panel">
+            <!-- 📊 DATA -->
+                    <div id="side-data">
                         <div class="section">
                             🏆 LEADERBOARD
                             <div id="leaderboard"></div>
@@ -356,12 +404,7 @@
                             <div id="chatters"></div>
                         </div>
                     </div>
-
-                </div>
-            </div>
         </div>
-
-        <div id="right-panel"></div>
 
     </div>
     </div>
@@ -544,6 +587,7 @@ socket.on("systemMessage", (msg) => {
     let winnerDiv = document.getElementById("winner");
 
     winnerDiv.innerText = msg;
+    winnerDiv.style.background = "rgba(0,0,0,0.85)";
 
     winnerDiv.classList.add("winner-animate");
 
