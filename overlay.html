@@ -453,7 +453,9 @@ function showMessage(text, duration = 6000) {
 }
 
 const socket = io();
-
+socket.onAny((event, data) => {
+    console.log("EVENT:", event, data);
+});
 
 
 // 🎮 MODE SWITCH
