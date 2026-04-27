@@ -73,6 +73,7 @@
 
             margin: 0 auto;
             box-sizing: border-box;
+            position: relative;   /* 🔥 REQUIRED */
         }
 
         /* 🔴 TOP */
@@ -128,7 +129,8 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;   /* 🔥 pulls content UP */
+            padding-top: 10px;             /* small breathing space */
             align-items: center;
 
             position: relative; /* 🔥 REQUIRED for winner overlay */
@@ -211,13 +213,13 @@
 
         /* 📊 DATA */
        #data {
-            height: 200px;
+            position: absolute;   /* 🔥 anchors it */
+            bottom: 20px;         /* 🔥 fixed bottom spacing */
+
             width: 100%;
 
             display: flex;
             justify-content: center;
-            align-items: center;
-
             gap: 20px;
         }
 
@@ -236,9 +238,17 @@
 
         /* 🔥 WINNER ANIMATION */
         @keyframes winnerPop {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); }
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         @keyframes glowPulse {
@@ -248,7 +258,7 @@
         }
 
         .winner-animate {
-            animation: winnerPop 0.6s ease, glowPulse 1.5s infinite;
+            animation: winnerPop 0.6s ease forwards, glowPulse 1.5s infinite;        
         }
 
                #layout {
@@ -332,7 +342,7 @@
                         <div id="winner"></div>
                     </div>
 
-                    <div id="facecam-space"></div>
+                    
 
                     <!-- 📊 DATA -->
                     <div id="data">
