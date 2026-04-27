@@ -509,7 +509,7 @@
 <script>
 const socket = io();
 
-socket.emit("registerAdmin");
+
 
 socket.on("wheelListVisibility", (visible) => {
     const el = document.getElementById("wheel-list-overlay");
@@ -521,17 +521,23 @@ let messageTimeout = null;
 let currentPriority = 0;
 
 function showMessage(text, duration = 6000, type = "normal", priority = 1) {
-    if (priority < currentPriority) return;
-
-    currentPriority = priority;
 
     const el = document.getElementById("winner");
 
-    if (messageTimeout) clearTimeout(messageTimeout);
+    // 🔥 HARD RESET (VERY IMPORTANT)
+    if (!text) {
+        currentPriority = 0;
+        if (messageTimeout) clearTimeout(messageTimeout);
+        el.style.opacity = "0";
+        el.innerText = "";
+        el.classList.remove("winner-animate");
+        return;
+    }
 
-    el.classList.toggle("show", visible);
-    el.classList.remove("winner-animate");
-    el.style.opacity = "0";
+    if (priority < currentPriority) return;
+
+    currentPriority = priority;
+    
 
     // 🎨 COLORS
     if (type === "warning") {
@@ -550,9 +556,7 @@ function showMessage(text, duration = 6000, type = "normal", priority = 1) {
         el.style.opacity = "1";
 
         el.classList.remove("winner-animate");
-        el.style.animation = 'none';
-el.offsetHeight;
-el.style.animation = null;
+        void el.offsetWidth;
         el.classList.add("winner-animate");
     }, 50);
 
@@ -585,7 +589,7 @@ socket.on("wheelList", (data) => {
 
     data.forEach((user, i) => {
         let name = user.length > 15 ? user.substring(0, 15) + "…" : user;
-        html += `${i + 1}. ${user}<br>`;
+        html += `${i + 1}. ${name}<br>`;
     });
 
     list.innerHTML = html || "No players yet";
