@@ -418,28 +418,34 @@
 
 let messageTimeout = null;
 
-function showMessage(text, duration = 6000) {
+function showMessage(text, duration = 6000, type = "normal") {
     const el = document.getElementById("winner");
 
-    // 🔥 Clear previous timeout
-    if (messageTimeout) {
-        clearTimeout(messageTimeout);
-    }
+    if (messageTimeout) clearTimeout(messageTimeout);
 
-    // 🔥 Reset state
     el.classList.remove("winner-animate");
     el.style.opacity = "0";
 
+    // 🎨 TYPE COLORS
+    if (type === "warning") {
+        el.style.color = "orange";
+        el.style.textShadow = "0 0 25px orange";
+    } else if (type === "remove") {
+        el.style.color = "red";
+        el.style.textShadow = "0 0 25px red";
+    } else {
+        el.style.color = "gold";
+        el.style.textShadow = "0 0 25px gold";
+    }
+
     setTimeout(() => {
-    el.innerText = text;
-    el.style.opacity = "1";
+        el.innerText = text;
+        el.style.opacity = "1";
 
-    // 🔥 FORCE animation restart
-    el.classList.remove("winner-animate");
-    void el.offsetWidth; // force reflow
-    el.classList.add("winner-animate");
-
-}, 50);
+        el.classList.remove("winner-animate");
+        void el.offsetWidth;
+        el.classList.add("winner-animate");
+    }, 50);
 
     messageTimeout = setTimeout(() => {
         el.style.opacity = "0";
@@ -448,18 +454,21 @@ function showMessage(text, duration = 6000) {
             el.innerText = "";
             el.classList.remove("winner-animate");
         }, 200);
-
     }, duration);
 }
 
-const socket = io();
-socket.onAny((event, data) => {
-    console.log("EVENT:", event, data);
-});
+const DEBUG = false;
 
+if (DEBUG) {
+    socket.onAny((event, data) => {
+        console.log("EVENT:", event, data);
+    });
+}
 
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {
+
+    showMessage("", 0); // hard reset
 
     
     document.getElementById("hangman").innerHTML = "";
@@ -619,12 +628,15 @@ socket.on("spamEnd", (data) => {
 });
 
 socket.on("systemMessage", (msg) => {
-
-    
-
     showMessage(msg, 6000);
+});
 
-    
+socket.on("warning", (user) => {
+    showMessage(`⚠️ ${user.toUpperCase()} STAY ACTIVE`, 6000, "warning");
+});
+
+socket.on("removed", (user) => {
+    showMessage(`❌ ${user.toUpperCase()} REMOVED`, 6000, "remove");
 });
 
 function scaleLayout() {
