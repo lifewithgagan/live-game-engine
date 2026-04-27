@@ -830,7 +830,7 @@ setInterval(() => {
         }
 
         // ❌ REMOVE
-        if (diff > 90000 && wheel.includes(username)) {
+        if (diff > 180000 && wheel.includes(username)) {
 
             removeFromWheel(username, "inactive");
         }
