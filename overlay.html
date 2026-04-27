@@ -20,22 +20,19 @@
     align-items: center;
 }
 
-#safe-area {
-    width: 1080px;
-    height: 1920px;
+        #safe-area {
+            width: 1080px;
+            height: 1920px;
 
-    margin: 0 auto;
+            margin: 0 auto;
 
-    padding-top: 40px;   /* 🔥 slightly reduced */
-    padding-bottom: 150px;
-    padding-left: 60px;
-    padding-right: 60px;
+            padding: 40px 40px 120px 40px;
 
-    box-sizing: border-box;
+            box-sizing: border-box;
 
-    display: flex;
-    justify-content: center;
-}
+            display: flex;
+            justify-content: center;
+        }
 
         #question {
             font-size: 60px;
@@ -65,23 +62,30 @@
 
         #container {
             width: 100%;
-            max-width: 820px; /* 🔥 prevents edge overflow */
-            margin: 0 auto;   /* 🔥 THIS FIXES CENTER SHIFT */
+            max-width: 820px;
             height: 100%;
+
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
+
             justify-content: flex-start;
+            align-items: center;
+
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         /* 🔴 TOP */
         #top {
-    text-align: center;
-    margin-bottom: 40px;
-    margin-top: 10px; /* 🔥 pushes ONLY top section down */
-}
+            height: 160px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
 
 #live {
     color: red;
@@ -93,21 +97,21 @@
 
 
 
-#hook {
-    font-size: clamp(48px, 6vw, 70px);
+        #hook {
+            font-size: clamp(48px, 6vw, 70px);
 
-    max-width: 90%;
-    margin: 0 auto;           /* 🔥 THIS IS THE FIX */
+            max-width: 100%;
+            width: 100%;
 
-    text-align: center;
+            text-align: center;
 
-    font-weight: 900;
-    line-height: 1.1;
+            margin: 0 auto;
 
-    text-shadow: 0 0 35px #ff00ff;
+            font-weight: 900;
+            line-height: 1.1;
 
-    word-wrap: break-word;
-}
+            text-shadow: 0 0 35px #ff00ff;
+        }
 
 #subhook {
     font-size: 32px;
@@ -118,35 +122,36 @@
 
         /* 🟡 GAME */
         #game {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 100%;
+            height: 420px;
+            width: 100%;
 
-    overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 🔥 THIS IS KEY */
+            position: relative; /* 🔥 REQUIRED for winner overlay */
         }
 
         #title {
-    font-size: 50px;
-    margin-bottom: 20px;
+            height: 80px;
 
-    color: #00ffff;
-    text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    letter-spacing: 2px;
-}
+            font-size: 42px;
+
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+        }
 
         #number {
-    font-size: 140px;
-    color: #00ffff;
-    text-shadow: 0 0 40px #00ffff;
-    margin-top: 10px;
-}
+            font-size: 110px; /* 🔥 reduced from 140 */
+
+            color: #00ffff;
+            text-shadow: 0 0 30px #00ffff;
+        }
 
         /* 🔤 HANGMAN */
         #hangman {
@@ -173,10 +178,24 @@
 
         /* 🏆 WINNER */
         #winner {
-            font-size: 80px;
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            font-size: 60px; /* 🔥 reduced */
+
             color: gold;
             text-shadow: 0 0 25px gold;
-            margin-top: 20px;
+
+            pointer-events: none; /* prevents blocking UI */
+        }
+
+        #facecam-space {
+            height: 220px;
+            width: 100%;
         }
 
         @keyframes flashWin {
@@ -191,28 +210,28 @@
 
         /* 📊 DATA */
        #data {
-    margin-top: 30px;
-    width: 100%;
+            height: 200px;
+            width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    gap: 20px;
+            gap: 20px;
+        }
 
-}
+        .section {
+            flex: 1;
+            max-width: 300px;
 
-.section {
-    flex: 1;                 /* 🔥 equal width (fixes alignment) */
-    max-width: 320px;
+            background: rgba(255,255,255,0.05);
+            padding: 12px 16px;
+            border-radius: 12px;
 
-    background: rgba(255,255,255,0.05); /* keep your premium look */
-    padding: 15px 20px;
-    border-radius: 12px;
+            min-height: 110px;
 
-    min-height: 120px;       /* prevents jumping */
-    text-align: center;      /* keeps content centered */
-}
+            text-align: center;
+        }
 
         /* 🔥 WINNER ANIMATION */
         @keyframes winnerPop {
@@ -311,6 +330,8 @@
                         <div id="hangman"></div>
                         <div id="winner"></div>
                     </div>
+
+                    <div id="facecam-space"></div>
 
                     <!-- 📊 DATA -->
                     <div id="data">
