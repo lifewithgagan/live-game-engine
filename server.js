@@ -103,6 +103,11 @@ function getTopChatters() {
         }));
 }
 
+function emitWheelList() {
+    io.emit("wheelList", wheel);
+}
+
+
 // 🎡 ADD TO WHEEL
 function addToWheel(user) {
 
@@ -113,6 +118,7 @@ function addToWheel(user) {
         fs.appendFile("wheel.txt", user + "\n", (err) => {
     if (err) console.log("File write error:", err);
 });
+        emitWheelList(); // 🔥 ADD THIS
 
         console.log("🎡 ADDED TO WHEEL:", user);
     }
@@ -482,6 +488,8 @@ function spinWheel() {
 
     // 🔔 NOTIFY UI
     io.emit("resetGame");
+
+    emitWheelList();
 
     console.log("✅ RESET COMPLETE");
     }
@@ -868,6 +876,7 @@ function removeFromWheel(user, reason = "") {
         io.emit("systemMessage",
             `❌ ${user} removed (missed round)`);
     }
+    emitWheelList(); // 🔥 keep UI synced
 }
 
 // 🚀 START

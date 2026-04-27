@@ -494,6 +494,13 @@ if (DEBUG) {
     });
 }
 
+let wheelPlayers = [];
+
+socket.on("wheelList", (data) => {
+    wheelPlayers = data;
+});
+
+
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {
 
