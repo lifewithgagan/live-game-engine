@@ -431,10 +431,15 @@ function showMessage(text, duration = 6000) {
     el.style.opacity = "0";
 
     setTimeout(() => {
-        el.innerText = text;
-        el.style.opacity = "1";
-        el.classList.add("winner-animate");
-    }, 50);
+    el.innerText = text;
+    el.style.opacity = "1";
+
+    // 🔥 FORCE animation restart
+    el.classList.remove("winner-animate");
+    void el.offsetWidth; // force reflow
+    el.classList.add("winner-animate");
+
+}, 50);
 
     messageTimeout = setTimeout(() => {
         el.style.opacity = "0";
@@ -454,7 +459,7 @@ const socket = io();
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {
 
-    document.getElementById("winner").innerText = "";
+    
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
     document.getElementById("question").innerText = "";
@@ -550,17 +555,10 @@ if (typeof confetti !== "undefined") {
         });
     }
 
-    let winnerDiv = document.getElementById("winner");
+    
     showMessage(data.user.toUpperCase() + " WON", 10000);
 
-    setTimeout(() => {
-      // 🔥 fade out
-
-    setTimeout(() => {
-           // clear AFTER fade
-    }, 200);
-
-}, 10000);
+    
 });
 
 socket.on("qaQuestion", (data) => {
@@ -609,36 +607,22 @@ socket.on("spamEnd", (data) => {
     document.getElementById("hangman").innerHTML = "";
     document.getElementById("number").innerText = "";
 
-    let winnerDiv = document.getElementById("winner");
+    
 
-    winnerDiv.innerText = data.winner.toUpperCase() + " WON";
+    showMessage(data.winner.toUpperCase() + " WON", 10000);
     
     
 
-    setTimeout(() => {
-      // 🔥 fade out
-
-    setTimeout(() => {
-           // clear AFTER fade
-    }, 200);
-
-}, 10000);
+    
 });
 
 socket.on("systemMessage", (msg) => {
 
-    let winnerDiv = document.getElementById("winner");
+    
 
     showMessage(msg, 6000);
 
-    setTimeout(() => {
-      // 🔥 fade out
-
-    setTimeout(() => {
-           // clear AFTER fade
-    }, 200);
-
-}, 10000);
+    
 });
 
 function scaleLayout() {
