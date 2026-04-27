@@ -193,27 +193,28 @@
 
         /* 🏆 WINNER */
         #winner {
-                position: absolute;
+            position: absolute;
 
-                top: 50%;
-                left: 50%;
+            top: 50%;
+            left: 50%;
 
-                transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 
-                font-size: 60px;
+            font-size: 60px;
+            color: gold;
+            text-shadow: 0 0 25px gold;
 
-                color: gold;
-                text-shadow: 0 0 25px gold;
+            padding: 20px 40px;
+            border-radius: 12px;
 
-                padding: 20px 40px;
-                border-radius: 12px;
+            background: rgba(0, 0, 0, 0.85);
 
-                background: rgba(0, 0, 0, 0.85); /* 🔥 THIS IS THE MAGIC */
+            pointer-events: none;
+            z-index: 10;
 
-                pointer-events: none;
-
-                z-index: 10; /* 🔥 ensures it sits above everything */
-            }
+            opacity: 0;              /* 🔥 HIDDEN by default */
+            transition: opacity 0.2s ease;
+        }
 
         #facecam-space {
             height: 220px;
@@ -517,13 +518,18 @@ if (typeof confetti !== "undefined") {
 
     let winnerDiv = document.getElementById("winner");
     winnerDiv.innerText = data.user.toUpperCase() + " WON";
+    winnerDiv.style.opacity = "1";
 
     winnerDiv.classList.add("winner-animate");
 
     setTimeout(() => {
-        winnerDiv.innerText = "";
-        winnerDiv.classList.remove("winner-animate");
-    }, 10000);
+    winnerDiv.style.opacity = "0";   // 🔥 fade out
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";    // clear AFTER fade
+    }, 200);
+
+}, 10000);
 });
 
 socket.on("qaQuestion", (data) => {
@@ -575,13 +581,17 @@ socket.on("spamEnd", (data) => {
     let winnerDiv = document.getElementById("winner");
 
     winnerDiv.innerText = data.winner.toUpperCase() + " WON";
-
+    winnerDiv.style.opacity = "1";
     winnerDiv.classList.add("winner-animate");
 
     setTimeout(() => {
-        winnerDiv.innerText = "";
-        winnerDiv.classList.remove("winner-animate");
-    }, 10000);
+    winnerDiv.style.opacity = "0";   // 🔥 fade out
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";    // clear AFTER fade
+    }, 200);
+
+}, 10000);
 });
 
 socket.on("systemMessage", (msg) => {
@@ -594,9 +604,13 @@ socket.on("systemMessage", (msg) => {
     winnerDiv.classList.add("winner-animate");
 
     setTimeout(() => {
-        winnerDiv.innerText = "";
-        winnerDiv.classList.remove("winner-animate");
-    }, 6000);
+    winnerDiv.style.opacity = "0";   // 🔥 fade out
+
+    setTimeout(() => {
+        winnerDiv.innerText = "";    // clear AFTER fade
+    }, 200);
+
+}, 10000);
 });
 
 function scaleLayout() {
