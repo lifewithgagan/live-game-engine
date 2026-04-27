@@ -415,7 +415,41 @@
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
+
+let messageTimeout = null;
+
+function showMessage(text, duration = 6000) {
+    const el = document.getElementById("winner");
+
+    // 🔥 Clear previous timeout
+    if (messageTimeout) {
+        clearTimeout(messageTimeout);
+    }
+
+    // 🔥 Reset state
+    el.classList.remove("winner-animate");
+    el.style.opacity = "0";
+
+    setTimeout(() => {
+        el.innerText = text;
+        el.style.opacity = "1";
+        el.classList.add("winner-animate");
+    }, 50);
+
+    messageTimeout = setTimeout(() => {
+        el.style.opacity = "0";
+
+        setTimeout(() => {
+            el.innerText = "";
+            el.classList.remove("winner-animate");
+        }, 200);
+
+    }, duration);
+}
+
 const socket = io();
+
+
 
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {
@@ -517,16 +551,13 @@ if (typeof confetti !== "undefined") {
     }
 
     let winnerDiv = document.getElementById("winner");
-    winnerDiv.innerText = data.user.toUpperCase() + " WON";
-    winnerDiv.style.opacity = "1";
-
-    winnerDiv.classList.add("winner-animate");
+    showMessage(data.user.toUpperCase() + " WON", 10000);
 
     setTimeout(() => {
-    winnerDiv.style.opacity = "0";   // 🔥 fade out
+      // 🔥 fade out
 
     setTimeout(() => {
-        winnerDiv.innerText = "";    // clear AFTER fade
+           // clear AFTER fade
     }, 200);
 
 }, 10000);
@@ -581,14 +612,14 @@ socket.on("spamEnd", (data) => {
     let winnerDiv = document.getElementById("winner");
 
     winnerDiv.innerText = data.winner.toUpperCase() + " WON";
-    winnerDiv.style.opacity = "1";
-    winnerDiv.classList.add("winner-animate");
+    
+    
 
     setTimeout(() => {
-    winnerDiv.style.opacity = "0";   // 🔥 fade out
+      // 🔥 fade out
 
     setTimeout(() => {
-        winnerDiv.innerText = "";    // clear AFTER fade
+           // clear AFTER fade
     }, 200);
 
 }, 10000);
@@ -598,15 +629,13 @@ socket.on("systemMessage", (msg) => {
 
     let winnerDiv = document.getElementById("winner");
 
-    winnerDiv.innerText = msg;
-    winnerDiv.style.opacity = "1";
-    winnerDiv.classList.add("winner-animate");
+    showMessage(msg, 6000);
 
     setTimeout(() => {
-    winnerDiv.style.opacity = "0";   // 🔥 fade out
+      // 🔥 fade out
 
     setTimeout(() => {
-        winnerDiv.innerText = "";    // clear AFTER fade
+           // clear AFTER fade
     }, 200);
 
 }, 10000);
