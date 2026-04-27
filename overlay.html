@@ -32,6 +32,8 @@
 
             display: flex;
             justify-content: center;
+
+                position: relative;
         }
 
         #question {
@@ -371,6 +373,67 @@
             overflow: hidden;
         }
 
+       #wheel-list-overlay {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+#wheel-list-overlay.show {
+    display: flex;
+    opacity: 1;
+}     
+
+
+        #wheel-list-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none; /* hidden by default */
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.7);
+    z-index: 20;
+}
+
+#wheel-list-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+#wheel-list-box::-webkit-scrollbar-thumb {
+    background: #00ffff;
+    border-radius: 10px;
+}
+
+#wheel-list-box {
+    width: 60%;
+    max-height: 70%;
+
+    background: rgba(0,0,0,0.9);
+    border: 2px solid #00ffff;
+    border-radius: 20px;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    text-align: center;
+}
+
+.wheel-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+#wheel-list {
+    font-size: 22px;
+    line-height: 1.6;
+}
 
 
     </style>
@@ -411,6 +474,15 @@
                     
 
                 </div>
+
+                <div id="wheel-list-overlay">
+                    <div id="wheel-list-box">
+                        <div class="wheel-title">🎡 PLAYERS ON WHEEL</div>
+                        <div id="wheel-list"></div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
@@ -436,6 +508,14 @@
 
 <script>
 const socket = io();
+
+socket.emit("registerAdmin");
+
+socket.on("wheelListVisibility", (visible) => {
+    const el = document.getElementById("wheel-list-overlay");
+    el.style.display = visible ? "flex" : "none";
+});
+
 let messageTimeout = null;
 
 let currentPriority = 0;
@@ -449,6 +529,7 @@ function showMessage(text, duration = 6000, type = "normal", priority = 1) {
 
     if (messageTimeout) clearTimeout(messageTimeout);
 
+    el.classList.toggle("show", visible);
     el.classList.remove("winner-animate");
     el.style.opacity = "0";
 
@@ -497,9 +578,24 @@ if (DEBUG) {
 let wheelPlayers = [];
 
 socket.on("wheelList", (data) => {
-    wheelPlayers = data;
+
+    const list = document.getElementById("wheel-list");
+
+    let html = "";
+
+    data.forEach((user, i) => {
+        let name = user.length > 15 ? user.substring(0, 15) + "…" : user;
+        html += `${i + 1}. ${user}<br>`;
+    });
+
+    list.innerHTML = html || "No players yet";
 });
 
+document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "w") {
+        socket.emit("toggleWheelList");
+    }
+});
 
 // 🎮 MODE SWITCH
 socket.on("mode", (mode) => {

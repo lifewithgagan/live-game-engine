@@ -43,6 +43,7 @@ let warnedUsers = {};
 let requiredNextRound = {}; // users who must participate next round
 let participatedThisRound = {};
 let adminSockets = new Set();
+let isWheelListVisible = false;
 
 
 
@@ -126,6 +127,10 @@ function addToWheel(user) {
 
 // 🎮 NUMBER
 function startNumber() {
+    isWheelListVisible = false;
+    io.emit("wheelListVisibility", false);
+
+
     game.winnerDeclared = false;
     // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
@@ -269,6 +274,9 @@ function getFreshQuestion() {
 
 // 🎮 HANGMAN
 function startHangman() {
+    isWheelListVisible = false;
+io.emit("wheelListVisibility", false);
+
 game.winnerDeclared = false;
    // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
@@ -311,6 +319,9 @@ adminSockets.forEach(sock => {
 }
 
 function startQA() {
+
+    isWheelListVisible = false;
+    io.emit("wheelListVisibility", false);
 
     game.winnerDeclared = false;
 
@@ -361,6 +372,10 @@ function startQA() {
 
 // 🔥 SPAM START
 function startSpam() {
+
+    isWheelListVisible = false;
+    io.emit("wheelListVisibility", false);
+
     game.winnerDeclared = false;
 
     // ✅ CHECK WHO MISSED LAST ROUND
@@ -451,7 +466,8 @@ function spinWheel() {
  // 🔥 RESET SYSTEM
     function resetGame() {
 
-        
+        isWheelListVisible = false;
+        io.emit("wheelListVisibility", false);
 
         participatedThisRound = {};
 
@@ -735,7 +751,26 @@ game.spamScores[user]++;
 // 🔌 SOCKET
 io.on("connection", (socket) => {
 
-    
+    socket.emit("wheelListVisibility", isWheelListVisible);
+    socket.emit("wheelList", wheel);
+
+    socket.on("toggleWheelList", () => {
+
+    // 🔒 Only admin can trigger
+    if (!socket.isAdmin) return;
+
+    isWheelListVisible = !isWheelListVisible;
+
+    console.log("🎡 Wheel List:", isWheelListVisible ? "SHOW" : "HIDE");
+
+    // 📡 Tell all overlays
+    io.emit("wheelListVisibility", isWheelListVisible);
+
+    // 🔁 Always send latest data when opening
+    if (isWheelListVisible) {
+        emitWheelList();
+    }
+});
 
     // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
 
