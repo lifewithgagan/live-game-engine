@@ -415,10 +415,16 @@
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
-
+const socket = io();
 let messageTimeout = null;
 
-function showMessage(text, duration = 6000, type = "normal") {
+let currentPriority = 0;
+
+function showMessage(text, duration = 6000, type = "normal", priority = 1) {
+    if (priority < currentPriority) return;
+
+    currentPriority = priority;
+
     const el = document.getElementById("winner");
 
     if (messageTimeout) clearTimeout(messageTimeout);
@@ -426,7 +432,7 @@ function showMessage(text, duration = 6000, type = "normal") {
     el.classList.remove("winner-animate");
     el.style.opacity = "0";
 
-    // 🎨 TYPE COLORS
+    // 🎨 COLORS
     if (type === "warning") {
         el.style.color = "orange";
         el.style.textShadow = "0 0 25px orange";
@@ -443,7 +449,9 @@ function showMessage(text, duration = 6000, type = "normal") {
         el.style.opacity = "1";
 
         el.classList.remove("winner-animate");
-        void el.offsetWidth;
+        el.style.animation = 'none';
+el.offsetHeight;
+el.style.animation = null;
         el.classList.add("winner-animate");
     }, 50);
 
@@ -453,6 +461,7 @@ function showMessage(text, duration = 6000, type = "normal") {
         setTimeout(() => {
             el.innerText = "";
             el.classList.remove("winner-animate");
+            currentPriority = 0;
         }, 200);
     }, duration);
 }
@@ -567,7 +576,7 @@ if (typeof confetti !== "undefined") {
     }
 
     
-    showMessage(data.user.toUpperCase() + " WON", 10000);
+    showMessage(data.user.toUpperCase() + " WON", 10000, "normal", 3);
 
     
 });
@@ -628,15 +637,15 @@ socket.on("spamEnd", (data) => {
 });
 
 socket.on("systemMessage", (msg) => {
-    showMessage(msg, 6000);
+    showMessage(msg, 6000, "normal", 1);
 });
 
 socket.on("warning", (user) => {
-    showMessage(`⚠️ ${user.toUpperCase()} STAY ACTIVE`, 6000, "warning");
+    showMessage(`⚠️ ${user.toUpperCase()} STAY ACTIVE`, 6000, "warning", 2);
 });
 
 socket.on("removed", (user) => {
-    showMessage(`❌ ${user.toUpperCase()} REMOVED`, 6000, "remove");
+    showMessage(`❌ ${user.toUpperCase()} REMOVED`, 6000, "remove", 2);
 });
 
 function scaleLayout() {
