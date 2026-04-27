@@ -120,7 +120,6 @@ function addToWheel(user) {
 
 // 🎮 NUMBER
 function startNumber() {
-        roundActive = true;
     game.winnerDeclared = false;
     // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
@@ -264,7 +263,6 @@ function getFreshQuestion() {
 
 // 🎮 HANGMAN
 function startHangman() {
-        roundActive = true;
 game.winnerDeclared = false;
    // ✅ CHECK WHO MISSED LAST ROUND
 for (let user in requiredNextRound) {
@@ -307,7 +305,7 @@ adminSockets.forEach(sock => {
 }
 
 function startQA() {
-    roundActive = true;
+
     game.winnerDeclared = false;
 
     // ✅ REMOVE PEOPLE WHO MISSED LAST ROUND
@@ -357,7 +355,6 @@ function startQA() {
 
 // 🔥 SPAM START
 function startSpam() {
-        roundActive = true;
     game.winnerDeclared = false;
 
     // ✅ CHECK WHO MISSED LAST ROUND
@@ -548,18 +545,7 @@ function startYouTubePolling() {
 
 function processGuess(user, message) {
 
-    // ✅ ALWAYS TRACK ACTIVITY (NO EXCEPTIONS)
-    lastMessageTime[user] = Date.now();
-
-    let roundActive = false;
-
-
-
-    if (warnedUsers[user]) {
-        delete warnedUsers[user];
-    }
-
-    if (game.locked || game.winnerDeclared) return;
+if (game.locked || game.winnerDeclared) return;
         
 
          user = user || "Anonymous";
@@ -785,7 +771,6 @@ io.on("connection", (socket) => {
 
 // 🏆 WIN
 function handleWin(user) {
-        roundActive = false;
 
     lastMessageTime[user] = Date.now();
     delete warnedUsers[user];
@@ -819,8 +804,6 @@ io.emit("winner", {
     answer,
     leaderboard: getLeaderboard()
 });
-
-
 setTimeout(() => {
     game.locked = false;
 }, 2000);
@@ -830,9 +813,6 @@ setTimeout(() => {
 
 setInterval(() => {
 
-    // ❌ DO NOTHING between rounds
-    if (!roundActive) return;
-
     let now = Date.now();
 
     for (let username of [...wheel]) {
@@ -840,14 +820,18 @@ setInterval(() => {
         let last = lastMessageTime[username] || 0;
         let diff = now - last;
 
+        // ⚠️ WARNING
         if (diff > 60000 && !warnedUsers[username]) {
+
             warnedUsers[username] = true;
 
             io.emit("systemMessage",
                 `⚠️ ${username} stay active or lose your spot!`);
         }
 
+        // ❌ REMOVE
         if (diff > 90000 && wheel.includes(username)) {
+
             removeFromWheel(username, "inactive");
         }
     }
