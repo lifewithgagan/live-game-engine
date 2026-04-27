@@ -599,8 +599,7 @@ socket.on("systemMessage", (msg) => {
     let winnerDiv = document.getElementById("winner");
 
     winnerDiv.innerText = msg;
-    winnerDiv.style.background = "rgba(0,0,0,0.85)";
-
+    winnerDiv.style.opacity = "1";
     winnerDiv.classList.add("winner-animate");
 
     setTimeout(() => {
