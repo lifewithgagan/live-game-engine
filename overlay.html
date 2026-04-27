@@ -513,7 +513,14 @@ const socket = io();
 
 socket.on("wheelListVisibility", (visible) => {
     const el = document.getElementById("wheel-list-overlay");
-    el.style.display = visible ? "flex" : "none";
+
+    if (visible) {
+        el.style.display = "flex";
+        el.style.opacity = "1";
+    } else {
+        el.style.display = "none";
+        el.style.opacity = "0";
+    }
 });
 
 let messageTimeout = null;
