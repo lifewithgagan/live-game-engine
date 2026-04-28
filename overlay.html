@@ -923,50 +923,49 @@ window.addEventListener("load", scaleLayout);
 
 // TEMP UI DEMO (remove later)
 document.getElementById("timer").innerText = "07:45pm";
-document.getElementById("activePlayers").innerText = "128";
+//document.getElementById("activePlayers").innerText = "128";
 
 
 //How to Play Starts
 
-document.addEventListener("DOMContentLoaded", () => {
+const tips = [
+    "💡 Guess correctly → +10 points",
+    "⚡ Play every round or lose your spot",
+    "🎯 Winner enters ₹100 wheel",
+    "🔥 Stay active or get removed",
+    "🎡 Wheel spins at 7:45 PM",
+    "🚨 Easy win — low competition",
+    "⚡ Answer fast to beat others",
+    "🏆 Top players reach the final wheel"
+];
 
-    const tips = [
-        "💡 Guess correctly → +10 points",
-        "⚡ Play every round or lose your spot",
-        "🎯 Winner enters ₹100 wheel",
-        "🔥 Stay active or get removed",
-        "🎡 Wheel spins at 7:45 PM",
-        "🚨 Easy win — low competition",
-        "⚡ Answer fast to beat others",
-        "🏆 Top players reach the final wheel"
-    ];
+let tipIndex = 0;
 
-    let tipIndex = 0;
+function rotateTips() {
+    const el = document.getElementById("howToPlay");
 
-    function rotateTips() {
-        const el = document.getElementById("howToPlay");
-
-        if (!el) return;
-
-        el.style.opacity = 0;
-
-        setTimeout(() => {
-            el.innerText = tips[tipIndex];
-            el.style.opacity = 1;
-
-            tipIndex = (tipIndex + 1) % tips.length;
-        }, 200);
+    if (!el) {
+        console.log("❌ howToPlay element not found");
+        return;
     }
 
-    // 🔥 RUN IMMEDIATELY
-    rotateTips();
+    el.style.opacity = 0;
 
-    // 🔥 ROTATE EVERY 4s
-    setInterval(rotateTips, 4000);
+    setTimeout(() => {
+        el.innerText = tips[tipIndex];
+        el.style.opacity = 1;
 
-});
+        tipIndex = (tipIndex + 1) % tips.length;
+    }, 200);
+}
 
-//How to Play Ends 
+// 🔥 RUN IMMEDIATELY
+rotateTips();
+
+// 🔥 ROTATE EVERY 4s
+setInterval(rotateTips, 4000);
+
+//How to Play Ends
 
 </script>
 
