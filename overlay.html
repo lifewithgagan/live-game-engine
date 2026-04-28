@@ -928,39 +928,43 @@ document.getElementById("activePlayers").innerText = "128";
 
 //How to Play Starts
 
-const tips = [
-    "💡 Guess correctly → +10 points",
-    "⚡ Play every round or lose your spot",
-    "🎯 Winner enters ₹100 wheel",
-    "🔥 Stay active or get removed",
-    "🎡 Wheel spins at 7:45 PM",
-    "🚨 Easy win — low competition",
-    "⚡ Answer fast to beat others",
-    "🏆 Top players reach the final wheel"
-];
+document.addEventListener("DOMContentLoaded", () => {
 
-let tipIndex = 0;
+    const tips = [
+        "💡 Guess correctly → +10 points",
+        "⚡ Play every round or lose your spot",
+        "🎯 Winner enters ₹100 wheel",
+        "🔥 Stay active or get removed",
+        "🎡 Wheel spins at 7:45 PM",
+        "🚨 Easy win — low competition",
+        "⚡ Answer fast to beat others",
+        "🏆 Top players reach the final wheel"
+    ];
 
-function rotateTips() {
-    const el = document.getElementById("howToPlay");
+    let tipIndex = 0;
 
-    if (!el) return;
+    function rotateTips() {
+        const el = document.getElementById("howToPlay");
 
-    el.style.opacity = 0;
+        if (!el) return;
 
-    setTimeout(() => {
-        el.innerText = tips[tipIndex];
-        el.style.opacity = 1;
+        el.style.opacity = 0;
 
-        tipIndex = (tipIndex + 1) % tips.length;
-    }, 300);
-}
+        setTimeout(() => {
+            el.innerText = tips[tipIndex];
+            el.style.opacity = 1;
 
-// start rotation
-setInterval(rotateTips, 4000);
+            tipIndex = (tipIndex + 1) % tips.length;
+        }, 200);
+    }
 
-// initial load
-rotateTips();
+    // 🔥 RUN IMMEDIATELY
+    rotateTips();
+
+    // 🔥 ROTATE EVERY 4s
+    setInterval(rotateTips, 4000);
+
+});
 
 //How to Play Ends 
 
