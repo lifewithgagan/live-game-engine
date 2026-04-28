@@ -563,13 +563,13 @@
                 <!-- 🏆 WIN STREAK -->
                 <div class="panel-box left-box">
                     <div class="panel-title">🏆 WIN STREAK KING</div>
-                    <div id="winStreak">Gagan × 3</div>
+                    <div id="winStreak">--</div>
                 </div>
 
                 <!-- 🔥 ROUND STREAK -->
                 <div class="panel-box left-box">
                     <div class="panel-title">🔥 ROUND STREAK KING</div>
-                    <div id="roundStreak">PlayerX × 7</div>
+                    <div id="roundStreak">--</div>
                 </div>
 
             </div>
@@ -668,7 +668,27 @@
 <script>
 const socket = io();
 
+// 🏆 STREAK UPDATE (PHASE 2)
+socket.on("streakUpdate", (data) => {
 
+    console.log("🔥 STREAK RECEIVED:", data);
+
+    const winEl = document.getElementById("winStreak");
+    const roundEl = document.getElementById("roundStreak");
+
+    if (data.win && data.win.user) {
+        winEl.innerText = `${data.win.user} × ${data.win.streak}`;
+    } else {
+        winEl.innerText = "--";
+    }
+
+    if (data.round && data.round.user) {
+        roundEl.innerText = `${data.round.user} × ${data.round.streak}`;
+    } else {
+        roundEl.innerText = "--";
+    }
+
+});
 
 socket.on("wheelListVisibility", (visible) => {
     const el = document.getElementById("wheel-list-overlay");

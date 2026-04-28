@@ -914,6 +914,16 @@ function removeFromWheel(user, reason = "") {
     emitWheelList(); // 🔥 keep UI synced
 }
 
+setTimeout(() => {
+    console.log("🧪 Sending streak test...");
+
+    io.emit("streakUpdate", {
+        win: { user: "Gagan", streak: 5 },
+        round: { user: "PlayerX", streak: 9 }
+    });
+
+}, 5000);
+
 // 🚀 START
 server.listen(3000, () => {
     console.log("Server running on http://localhost:3000");
