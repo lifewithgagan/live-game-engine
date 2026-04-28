@@ -514,38 +514,6 @@
     transition: opacity 0.3s ease;
 }
 
-#left-data {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Make left visually different from right */
-.left-box {
-    box-shadow: 
-        0 0 15px rgba(0, 255, 255, 0.2),
-        inset 0 0 10px rgba(255, 255, 255, 0.05);
-}
-
-/* TEXT */
-#winStreak,
-#roundStreak {
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-/* COLORS */
-#winStreak {
-    color: gold;
-    text-shadow: 0 0 15px gold;
-}
-
-#roundStreak {
-    color: #00ffff;
-    text-shadow: 0 0 15px #00ffff;
-}
 
     </style>
 </head>
@@ -554,23 +522,7 @@
     <div id="scale-wrapper">
     <div id="layout">
 
-        <div id="left-panel">
-            <div id="left-data">
-
-                <!-- 🏆 WIN STREAK -->
-                <div class="panel-box left-box">
-                    <div class="panel-title">🏆 WIN STREAK KING</div>
-                    <div id="winStreak"></div>
-                </div>
-
-                <!-- 🔥 ROUND STREAK -->
-                <div class="panel-box left-box">
-                    <div class="panel-title">🔥 ROUND STREAK KING</div>
-                    <div id="roundStreak"></div>
-                </div>
-
-            </div>
-        </div>
+        <div id="left-panel"></div>
 
         <div id="center-panel">
             <div id="safe-area">
@@ -662,37 +614,7 @@
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
-
-
 const socket = io();
-console.log("🚀 RENDER SERVER UPDATED");
-
-// 🏆 STREAK DISPLAY (STEP 1)
-
-socket.on("streakUpdate", (data) => {
-
-    console.log("🔥 STREAK RECEIVED:", data); // debug
-
-    // WIN STREAK
-    const winEl = document.getElementById("winStreak");
-    if (winEl) {
-        if (data.win.user) {
-            winEl.innerText = `${data.win.user} × ${data.win.streak}`;
-        } else {
-            winEl.innerText = "--";
-        }
-    }
-
-    // ROUND STREAK
-    const roundEl = document.getElementById("roundStreak");
-    if (roundEl) {
-        if (data.round.user) {
-            roundEl.innerText = `${data.round.user} × ${data.round.streak}`;
-        } else {
-            roundEl.innerText = "--";
-        }
-    }
-});
 
 
 
@@ -1044,14 +966,6 @@ rotateTips();
 setInterval(rotateTips, 4000);
 
 //How to Play Ends
-
-setTimeout(() => {
-    winStreakKing = { user: "Gagan", streak: 3 };
-    roundStreakKing = { user: "PlayerX", streak: 7 };
-
-    console.log("🧪 Sending test streak data...");
-    emitStreaks();
-}, 3000);
 
 </script>
 
