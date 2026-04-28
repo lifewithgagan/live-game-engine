@@ -668,6 +668,14 @@
 <script>
 const socket = io();
 
+socket.on("connect", () => {
+    console.log("🟢 Connected to server:", socket.id);
+});
+
+socket.onAny((event, data) => {
+    console.log("📡 EVENT:", event, data);
+});
+
 // 🏆 STREAK UPDATE (PHASE 2)
 socket.on("streakUpdate", (data) => {
 

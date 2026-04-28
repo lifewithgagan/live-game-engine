@@ -751,6 +751,14 @@ game.spamScores[user]++;
 // 🔌 SOCKET
 io.on("connection", (socket) => {
 
+
+    console.log("🟢 CLIENT CONNECTED");
+
+    socket.emit("streakUpdate", {
+        win: { user: "Gagan", streak: 5 },
+        round: { user: "PlayerX", streak: 9 }
+    });
+
     socket.emit("wheelListVisibility", isWheelListVisible);
     socket.emit("wheelList", wheel);
 
@@ -914,15 +922,7 @@ function removeFromWheel(user, reason = "") {
     emitWheelList(); // 🔥 keep UI synced
 }
 
-setTimeout(() => {
-    console.log("🧪 Sending streak test...");
 
-    io.emit("streakUpdate", {
-        win: { user: "Gagan", streak: 5 },
-        round: { user: "PlayerX", streak: 9 }
-    });
-
-}, 5000);
 
 // 🚀 START
 server.listen(3000, () => {
