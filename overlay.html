@@ -515,6 +515,40 @@
 }
 
 
+/* LEFT PANEL LAYOUT */
+#left-data {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* VISUAL STYLE (cyan glow instead of pink) */
+.left-box {
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.25),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* TEXT */
+#winStreak,
+#roundStreak {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* COLORS */
+#winStreak {
+    color: gold;
+    text-shadow: 0 0 15px gold;
+}
+
+#roundStreak {
+    color: #00ffff;
+    text-shadow: 0 0 15px #00ffff;
+}
+
     </style>
 </head>
 
@@ -522,7 +556,25 @@
     <div id="scale-wrapper">
     <div id="layout">
 
-        <div id="left-panel"></div>
+        <div id="left-panel">
+
+            <div id="left-data">
+
+                <!-- 🏆 WIN STREAK -->
+                <div class="panel-box left-box">
+                    <div class="panel-title">🏆 WIN STREAK KING</div>
+                    <div id="winStreak">Gagan × 3</div>
+                </div>
+
+                <!-- 🔥 ROUND STREAK -->
+                <div class="panel-box left-box">
+                    <div class="panel-title">🔥 ROUND STREAK KING</div>
+                    <div id="roundStreak">PlayerX × 7</div>
+                </div>
+
+            </div>
+
+        </div>
 
         <div id="center-panel">
             <div id="safe-area">
