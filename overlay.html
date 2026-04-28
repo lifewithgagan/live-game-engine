@@ -709,7 +709,7 @@ socket.on("wheelList", (data) => {
     });
 
     if (data.length > 3) {
-        previewHtml += `<br><span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
+        previewHtml += `<span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
     }
 
     preview.innerHTML = previewHtml;
