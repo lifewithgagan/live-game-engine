@@ -75,6 +75,16 @@ let chatCount = {}; // 🔥 track messages per user
 let lastTopChattersEmit = 0;
 let lastLeaderboardEmit = 0;
 
+// 🏆 STREAK SYSTEM (NEW)
+
+let winStreaks = {};   // user → streak count
+let lastWinner = null; // track previous winner
+
+let winStreakKing = {
+    user: null,
+    streak: 0
+};
+
 
 // 🧠 WORDS
 
@@ -747,6 +757,12 @@ game.spamScores[user]++;
 
 }
 
+function emitStreaks() {
+    io.emit("streakUpdate", {
+        win: winStreakKing,
+        round: { user: null, streak: 0 } // placeholder for now
+    });
+}
 
 // 🔌 SOCKET
 io.on("connection", (socket) => {
@@ -754,10 +770,7 @@ io.on("connection", (socket) => {
 
     console.log("🟢 CLIENT CONNECTED");
 
-    socket.emit("streakUpdate", {
-        win: { user: "Gagan", streak: 5 },
-        round: { user: "PlayerX", streak: 9 }
-    });
+    
 
     socket.emit("wheelListVisibility", isWheelListVisible);
     socket.emit("wheelList", wheel);
@@ -829,6 +842,33 @@ function handleWin(user) {
     game.locked = true;
 
     players[user] += 10;
+
+    // 🏆 WIN STREAK LOGIC
+
+if (!winStreaks[user]) {
+    winStreaks[user] = 0;
+}
+
+// same winner continues streak
+if (lastWinner === user) {
+    winStreaks[user]++;
+} else {
+    winStreaks[user] = 1;
+}
+
+lastWinner = user;
+
+// update king
+if (winStreaks[user] > winStreakKing.streak) {
+    winStreakKing = {
+        user: user,
+        streak: winStreaks[user]
+    };
+}
+
+// 🔥 SEND TO UI
+emitStreaks();
+
     addToWheel(user);
     // 🔥 MUST PARTICIPATE NEXT ROUND
     requiredNextRound[user] = true;
