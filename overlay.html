@@ -458,10 +458,53 @@
     color: #ff00ff;
     text-shadow: 0 0 12px #ff00ff;
 }
-
 .panel-box {
-    border: 2px solid red !important;
+    background: rgba(20, 0, 30, 0.6);
+    border-radius: 16px;
+
+    padding: 18px;
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 
+        0 0 10px rgba(255, 0, 255, 0.2),
+        inset 0 0 10px rgba(0, 255, 255, 0.05);
 }
+.panel-box:nth-child(1) { border-color: #ff00ff; } /* chatters */
+.panel-box:nth-child(2) { border-color: #00ffff; } /* leaderboard */
+.panel-box:nth-child(3) { border-color: #00ffcc; } /* wheel */
+.panel-box:nth-child(4) { border-color: #ffd700; } /* timer */
+.panel-box:nth-child(5) { border-color: #ff00ff; } /* players */
+
+#timer {
+    font-size: 48px;
+    font-weight: 800;
+
+    color: #00ffff;
+    text-shadow: 0 0 25px #00ffff;
+
+    letter-spacing: 2px;
+}
+
+#activePlayers {
+    font-size: 36px;
+    font-weight: bold;
+
+    color: #ff00ff;
+    text-shadow: 0 0 15px #ff00ff;
+}
+#wheel-preview {
+    font-size: 22px;
+    line-height: 1.6;
+
+    color: #00ffcc;
+}
+
+
+
+
     </style>
 </head>
 
@@ -666,7 +709,7 @@ socket.on("wheelList", (data) => {
     });
 
     if (data.length > 5) {
-        previewHtml += `+${data.length - 5} more...`;
+        previewHtml += `<br><span style="color:#ffd700">+${data.length - 5} more waiting...</span>`;
     }
 
     preview.innerHTML = previewHtml;
