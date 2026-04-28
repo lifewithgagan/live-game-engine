@@ -71,6 +71,15 @@ let game = {
 let players = {};
 let wheel = [];
 let roundPlayers = {}; // track who already got +2 this round
+
+// 🔥 STREAK SYSTEM (STEP 1 - BASE ONLY)
+
+let winStreaks = {};
+let roundStreaks = {};
+
+let winStreakKing = { user: null, streak: 0 };
+let roundStreakKing = { user: null, streak: 0 };
+
 let chatCount = {}; // 🔥 track messages per user
 let lastTopChattersEmit = 0;
 let lastLeaderboardEmit = 0;
@@ -107,6 +116,8 @@ function getTopChatters() {
 function emitWheelList() {
     io.emit("wheelList", wheel);
 }
+
+
 
 
 // 🎡 ADD TO WHEEL
@@ -462,6 +473,14 @@ function spinWheel() {
         winner
     });
 }
+
+function emitStreaks() {
+    io.emit("streakUpdate", {
+        win: winStreakKing,
+        round: roundStreakKing
+    });
+}
+
 
  // 🔥 RESET SYSTEM
     function resetGame() {
@@ -913,6 +932,16 @@ function removeFromWheel(user, reason = "") {
     }
     emitWheelList(); // 🔥 keep UI synced
 }
+
+
+// 🔥 TEST STREAK EMIT (STEP 1 VALIDATION)
+setTimeout(() => {
+    winStreakKing = { user: "Gagan", streak: 3 };
+    roundStreakKing = { user: "PlayerX", streak: 7 };
+
+    console.log("🧪 Sending test streak data...");
+    emitStreaks();
+}, 3000);
 
 // 🚀 START
 server.listen(3000, () => {
