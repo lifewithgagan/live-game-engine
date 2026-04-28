@@ -202,7 +202,7 @@
 
             transform: translate(-50%, -50%);
 
-            font-size: 60px;
+            font-size: 44px;
             color: gold;
             text-shadow: 0 0 25px gold;
 
@@ -234,11 +234,11 @@
 }
 
 #side-data {
-    padding: 20px;
+    padding: 16px;
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
 
     justify-content: flex-start;
 }
@@ -418,32 +418,22 @@
     line-height: 1.6;
 }
 
-.panel-box {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
 
-    padding: 18px;
-    margin-bottom: 18px;
-
-    text-align: center;
-
-    box-shadow: 0 0 15px rgba(255,0,255,0.15);
-}
 
 .panel-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    font-size: 14px;     /* 🔥 smaller */
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
 }
 
 /* LIST TEXT */
 #leaderboard,
 #chatters,
 #wheel-preview {
-    font-size: 22px;
-    line-height: 1.6;
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 /* BIG NUMBERS */
@@ -469,11 +459,11 @@
 
     border: 1px solid rgba(255,255,255,0.1);
     box-shadow: 
-        0 0 10px rgba(255, 0, 255, 0.2),
-        inset 0 0 10px rgba(0, 255, 255, 0.05);
+    0 0 6px rgba(255, 0, 255, 0.15),
+    inset 0 0 6px rgba(0, 255, 255, 0.04);
 }
 .panel-box:nth-child(1) { border-color: #ff00ff; } /* chatters */
-.panel-box:nth-child(2) { border-color: #00ffff; } /* leaderboard */
+.panel-box:nth-child(2) { border-color: #00ffff; transform: scale(1.03);} /* leaderboard */
 .panel-box:nth-child(3) { border-color: #00ffcc; } /* wheel */
 .panel-box:nth-child(4) { border-color: #ffd700; } /* timer */
 .panel-box:nth-child(5) { border-color: #ff00ff; } /* players */
@@ -502,6 +492,15 @@
     color: #00ffcc;
 }
 
+#wheel-preview {
+    font-size: 20px;
+    line-height: 1.5;
+
+    color: #00ffcc;
+
+    max-height: 110px;   /* 🔥 HARD LIMIT */
+    overflow: hidden;    /* 🔥 PREVENT BREAK */
+}
 
 
 
@@ -681,38 +680,22 @@ let wheelPlayers = [];
 
 socket.on("wheelList", (data) => {
 
-    // FULL LIST (overlay)
-    const list = document.getElementById("wheel-list");
+    const list = document.getElementById("wheel-preview");
 
-    let fullHtml = "";
-    data.forEach((user, i) => {
-        let name = user.length > 15 ? user.substring(0, 15) + "…" : user;
-        fullHtml += `${i + 1}. ${name}<br>`;
-    });
+    let preview = data.slice(0, 3); // ✅ LIMIT TO 3
 
-    list.innerHTML = fullHtml || "No players yet";
+    let html = "";
 
-
-    // RIGHT PANEL PREVIEW (TOP 5)
-    const preview = document.getElementById("wheel-preview");
-
-    if (data.length === 0) {
-        preview.innerHTML = "No players yet";
-        return;
-    }
-
-    let previewHtml = "";
-
-    data.slice(0, 5).forEach((user, i) => {
+    preview.forEach((user, i) => {
         let name = user.length > 12 ? user.substring(0, 12) + "…" : user;
-        previewHtml += `${i + 1}. ${name}<br>`;
+        html += `${i + 1}. ${name}<br>`;
     });
 
-    if (data.length > 5) {
-        previewHtml += `<br><span style="color:#ffd700">+${data.length - 5} more waiting...</span>`;
+    if (data.length > 3) {
+        html += `<br><span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
     }
 
-    preview.innerHTML = previewHtml;
+    list.innerHTML = html || "No players yet";
 });
 
 
