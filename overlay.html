@@ -502,7 +502,17 @@
     color: #00ffcc;
 }
 
+#howToPlay {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
 
+    color: #00ffcc;
+    text-shadow: 0 0 12px #00ffcc;
+
+    min-height: 60px; /* prevents jump */
+    transition: opacity 0.3s ease;
+}
 
 
     </style>
@@ -583,10 +593,16 @@
                             <div id="timer">--:--</div>
                         </div>
 
-                        <!-- 👥 ACTIVE PLAYERS -->
+                        <!-- 👥 ACTIVE PLAYERS 
                         <div class="panel-box">
                             <div class="panel-title">👥 ACTIVE PLAYERS</div>
                             <div id="activePlayers">--</div>
+                        </div> -->
+
+                        <!-- 💡 HOW TO PLAY -->
+                        <div class="panel-box">
+                            <div class="panel-title">💡 HOW TO PLAY</div>
+                            <div id="howToPlay">Loading...</div>
                         </div>
 
                     </div>
@@ -908,6 +924,45 @@ window.addEventListener("load", scaleLayout);
 // TEMP UI DEMO (remove later)
 document.getElementById("timer").innerText = "07:45pm";
 document.getElementById("activePlayers").innerText = "128";
+
+
+<!-- How to Play Starts -->
+
+const tips = [
+    "💡 Guess correctly → +10 points",
+    "⚡ Play every round or lose your spot",
+    "🎯 Winner enters ₹100 wheel",
+    "🔥 Stay active or get removed",
+    "🎡 Wheel spins at 7:45 PM",
+    "🚨 Easy win — low competition",
+    "⚡ Answer fast to beat others",
+    "🏆 Top players reach the final wheel"
+];
+
+let tipIndex = 0;
+
+function rotateTips() {
+    const el = document.getElementById("howToPlay");
+
+    if (!el) return;
+
+    el.style.opacity = 0;
+
+    setTimeout(() => {
+        el.innerText = tips[tipIndex];
+        el.style.opacity = 1;
+
+        tipIndex = (tipIndex + 1) % tips.length;
+    }, 300);
+}
+
+// start rotation
+setInterval(rotateTips, 4000);
+
+// initial load
+rotateTips();
+
+<!-- How to Play Ends -->
 
 </script>
 
