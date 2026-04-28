@@ -502,15 +502,6 @@
     color: #00ffcc;
 }
 
-#wheel-preview {
-    font-size: 20px;
-    line-height: 1.5;
-
-    color: #00ffcc;
-
-    max-height: 110px;   /* 🔥 HARD LIMIT */
-    overflow: hidden;    /* 🔥 PREVENT BREAK */
-}
 
 
 
@@ -690,22 +681,38 @@ let wheelPlayers = [];
 
 socket.on("wheelList", (data) => {
 
-    const list = document.getElementById("wheel-preview");
+    // FULL LIST (overlay)
+    const list = document.getElementById("wheel-list");
 
-    let preview = data.slice(0, 3); // ✅ LIMIT TO 3
+    let fullHtml = "";
+    data.forEach((user, i) => {
+        let name = user.length > 15 ? user.substring(0, 15) + "…" : user;
+        fullHtml += `${i + 1}. ${name}<br>`;
+    });
 
-    let html = "";
+    list.innerHTML = fullHtml || "No players yet";
 
-    preview.forEach((user, i) => {
+
+    // RIGHT PANEL PREVIEW (TOP 5)
+    const preview = document.getElementById("wheel-preview");
+
+    if (data.length === 0) {
+        preview.innerHTML = "No players yet";
+        return;
+    }
+
+    let previewHtml = "";
+
+    data.slice(0, 3).forEach((user, i) => {
         let name = user.length > 12 ? user.substring(0, 12) + "…" : user;
-        html += `${i + 1}. ${name}<br>`;
+        previewHtml += `${i + 1}. ${name}<br>`;
     });
 
     if (data.length > 3) {
-        html += `<br><span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
+        previewHtml += `<br><span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
     }
 
-    list.innerHTML = html || "No players yet";
+    preview.innerHTML = previewHtml;
 });
 
 
