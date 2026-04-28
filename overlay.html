@@ -662,8 +662,10 @@
     <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/2018/2018-preview.mp3"></audio>
 
 <script>
-const socket = io();
 
+
+const socket = io();
+console.log("🚀 RENDER SERVER UPDATED");
 
 // 🏆 STREAK DISPLAY (STEP 1)
 
@@ -1042,6 +1044,14 @@ rotateTips();
 setInterval(rotateTips, 4000);
 
 //How to Play Ends
+
+setTimeout(() => {
+    winStreakKing = { user: "Gagan", streak: 3 };
+    roundStreakKing = { user: "PlayerX", streak: 7 };
+
+    console.log("🧪 Sending test streak data...");
+    emitStreaks();
+}, 3000);
 
 </script>
 

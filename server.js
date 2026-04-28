@@ -768,6 +768,17 @@ game.spamScores[user]++;
 
 
 // 🔌 SOCKET
+
+io.on("connection", (socket) => {
+
+    console.log("🟢 CLIENT CONNECTED");
+
+    socket.on("testPing", (msg) => {
+        console.log("🔥 TEST PING RECEIVED:", msg);
+    });
+
+});
+
 io.on("connection", (socket) => {
 
     socket.emit("wheelListVisibility", isWheelListVisible);
