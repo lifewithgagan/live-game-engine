@@ -692,24 +692,7 @@ socket.on("streakUpdate", (data) => {
     }
 });
 
-socket.on("streakUpdate", (data) => {
 
-    const winEl = document.getElementById("winStreak");
-    const roundEl = document.getElementById("roundStreak");
-
-    if (data.win && data.win.user) {
-        winEl.innerText = `${data.win.user} × ${data.win.streak}`;
-    } else {
-        winEl.innerText = "--";
-    }
-
-    if (data.round && data.round.user) {
-        roundEl.innerText = `${data.round.user} × ${data.round.streak}`;
-    } else {
-        roundEl.innerText = "--";
-    }
-
-});
 
 socket.on("wheelListVisibility", (visible) => {
     const el = document.getElementById("wheel-list-overlay");
