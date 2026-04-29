@@ -820,37 +820,32 @@ game.spamScores[user]++;
                 // NUMBER
                 if (game.mode === "number") {
 
-                let guess = parseInt(input);
-                if (isNaN(guess)) return;
+                    let guess = parseInt(input);
+                    if (isNaN(guess)) return;
 
-                if (guess < game.min || guess > game.max) return;
-                participatedThisRound[user] = true; // ✅ MOVE HERE            
-                // DO NOT return here anymore
+                    // ✅ MARK PARTICIPATION FIRST (IMPORTANT)
+                    participatedThisRound[user] = true;
 
-                // ✅ ONLY NOW they are truly participating
-                if (requiredNextRound[user]) {
-                delete requiredNextRound[user];
+                    if (requiredNextRound[user]) {
+                        delete requiredNextRound[user];
+                    }
+
+                    // ✅ GIVE +2 ON FIRST VALID ATTEMPT (NOT RANGE DEPENDENT)
+                    if (!roundPlayers[user]) {
+                        players[user] += 2;
+                        roundPlayers[user] = true;
+                        io.emit("leaderboard", getLeaderboard());
+                    }
+
+                    // ❌ ONLY NOW check range (for winning)
+                    if (guess < game.min || guess > game.max) return;
+
+                    if (guess === game.answer) {
+                        game.winnerDeclared = true;
+                        handleWin(user);
+                        return;
+                    }
                 }
-
-                // ✅ GIVE +2 ONLY ONCE PER ROUND
-                if (!roundPlayers[user]) {
-                players[user] += 2;
-                roundPlayers[user] = true;
-                io.emit("leaderboard", getLeaderboard());
-                
-                }
-
-               if (guess === game.answer) {
-                    
-    
-
-    game.winnerDeclared = true;
-    handleWin(user);
-    return;
-}
-
-            
-             }
 
              // HANGMAN
                 if (game.mode === "hangman") {
