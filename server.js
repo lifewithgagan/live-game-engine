@@ -136,23 +136,32 @@ function emitRiskZone() {
 
 function getLifetimeData() {
     try {
+        console.log("📂 Reading lifetime.txt...");
+
         const data = fs.readFileSync("lifetime.txt", "utf-8");
 
-        return data
+        console.log("📄 RAW FILE:", data);
+
+        const parsed = data
             .split("\n")
             .map(line => line.trim())
             .filter(line => line.length > 0)
             .map(line => {
                 const [user, amount] = line.split(",");
+
                 return {
                     user: user,
                     amount: parseInt(amount)
                 };
             })
-            .sort((a, b) => b.amount - a.amount); // 🔥 highest first
+            .sort((a, b) => b.amount - a.amount);
+
+        console.log("✅ PARSED:", parsed);
+
+        return parsed;
 
     } catch (err) {
-        console.log("❌ Lifetime file error:", err);
+        console.log("❌ Lifetime file error:", err.message);
         return [];
     }
 }
