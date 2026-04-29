@@ -569,6 +569,15 @@
     text-shadow: 0 0 10px red;
 }
 
+#lifetimeBox {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #ffd700;
+    text-shadow: 0 0 10px gold;
+}
+
+
+
     </style>
 </head>
 
@@ -595,6 +604,11 @@
                 <div class="panel-box left-box">
                     <div class="panel-title">🚨 RISK ZONE</div>
                     <div id="riskZone">All safe ✅</div>
+                </div>
+
+                <div class="panel-box left-box">
+                    <div class="panel-title">💰 LIFETIME WINNERS</div>
+                    <div id="lifetimeBox">Loading...</div>
                 </div>
 
 
@@ -839,6 +853,43 @@ socket.on("wheelList", (data) => {
     preview.innerHTML = previewHtml;
 });
 
+let lifetimeData = [];
+let lifetimeIndex = 0;
+
+socket.on("lifetimeUpdate", (data) => {
+    lifetimeData = data || [];
+    lifetimeIndex = 0;
+    renderLifetime();
+});
+
+function renderLifetime() {
+
+    const el = document.getElementById("lifetimeBox");
+
+    if (!lifetimeData.length) {
+        el.innerText = "No winners yet";
+        return;
+    }
+
+    let html = "";
+
+    const slice = lifetimeData.slice(lifetimeIndex, lifetimeIndex + 3);
+
+    slice.forEach(p => {
+        html += `${p.user}  ₹${p.amount}\n`;
+    });
+
+    el.innerText = html;
+
+    lifetimeIndex += 3;
+
+    if (lifetimeIndex >= lifetimeData.length) {
+        lifetimeIndex = 0;
+    }
+}
+
+// 🔁 Rotate every 4 sec
+setInterval(renderLifetime, 4000);
 
 
 // 🎮 MODE SWITCH

@@ -134,6 +134,34 @@ function emitRiskZone() {
     io.emit("riskZoneUpdate", Array.from(riskZone));
 }
 
+function getLifetimeData() {
+    try {
+        const data = fs.readFileSync("lifetime.txt", "utf-8");
+
+        return data
+            .split("\n")
+            .map(line => line.trim())
+            .filter(line => line.length > 0)
+            .map(line => {
+                const [user, amount] = line.split(",");
+                return {
+                    user: user,
+                    amount: parseInt(amount)
+                };
+            })
+            .sort((a, b) => b.amount - a.amount); // 🔥 highest first
+
+    } catch (err) {
+        console.log("❌ Lifetime file error:", err);
+        return [];
+    }
+}
+
+function emitLifetime() {
+    io.emit("lifetimeUpdate", getLifetimeData());
+}
+
+
 function markUserActive(user) {
 
     // ✅ update activity time
@@ -942,6 +970,7 @@ io.on("connection", (socket) => {
 
     socket.emit("wheelListVisibility", isWheelListVisible);
     socket.emit("wheelList", wheel);
+    emitLifetime();
 
     socket.on("toggleWheelList", () => {
 
@@ -959,6 +988,10 @@ io.on("connection", (socket) => {
     if (isWheelListVisible) {
         emitWheelList();
     }
+
+    setInterval(() => {
+    emitLifetime();
+}, 10000); // every 10 sec
 });
 
     // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
