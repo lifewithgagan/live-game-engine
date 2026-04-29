@@ -989,9 +989,7 @@ io.on("connection", (socket) => {
         emitWheelList();
     }
 
-    setInterval(() => {
-    emitLifetime();
-}, 10000); // every 10 sec
+    
 });
 
     // 🔐 MARK ADMIN (ONLY PANEL WILL SEND THIS)
@@ -1212,7 +1210,10 @@ function removeFromWheel(user, reason = "") {
     emitWheelList(); // 🔥 keep UI synced
 }
 
-
+setInterval(() => {
+    console.log("🔄 Refreshing lifetime data...");
+    emitLifetime();
+}, 10000);
 
 // 🚀 START
 server.listen(3000, () => {
