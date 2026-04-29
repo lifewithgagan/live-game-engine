@@ -1,5 +1,179 @@
-Who directed Interstellar?|Christopher Nolan
-Capital of Australia?|Canberra
-17 * 13?|221
-Largest planet in our solar system?|Jupiter
-Who discovered gravity?|Isaac Newton
+What has to be broken before you can use it? | egg
+What goes up but never comes down? | age
+What has a neck but no head? | bottle
+What has hands but cannot clap? | clock
+What has one eye but cannot see? | needle
+What has many teeth but cannot bite? | comb
+What gets wetter the more it dries? | towel
+What can travel around the world while staying in one spot? | stamp
+What has keys but cannot open locks? | piano
+What has a ring but no finger? | phone
+What has a face and two hands but no arms or legs? | clock
+What has a thumb and four fingers but is not alive? | glove
+What runs but never walks? | water
+What has a head and a tail but no body? | coin
+What can you catch but not throw? | cold
+What is always in front of you but can’t be seen? | future
+What has legs but doesn’t walk? | table
+What has a bottom at the top? | leg
+What has a mouth but cannot eat? | river
+What has an eye but cannot see? | needle
+What gets bigger the more you take away? | hole
+What belongs to you but others use it more? | name
+What can you break without touching it? | promise
+What has words but never speaks? | book
+What can fill a room but takes up no space? | light
+What has a heart that doesn’t beat? | artichoke
+What is full of holes but still holds water? | sponge
+What has four wheels and flies? | garbage truck
+What can you hold without touching it? | breath
+What has a spine but no bones? | book
+What has a bark but no bite? | tree
+What comes once in a minute, twice in a moment, but never in a thousand years? | m
+What can’t talk but will reply when spoken to? | echo
+What begins with t, ends with t, and has t in it? | teapot
+What has cities but no houses? | map
+What has rivers but no water? | map
+What has forests but no trees? | map
+What has keys but can’t open doors? | keyboard
+What can you hear but not see? | sound
+What has a bed but never sleeps? | river
+What has a foot but no legs? | ruler
+What has ears but cannot hear? | corn
+What has an end but no beginning? | stick
+What has one head, one foot, and four legs? | bed
+What can run but cannot walk? | engine
+What can fly without wings? | time
+What has no life but can die? | battery
+What has a tail but no body? | coin
+What is black when clean and white when dirty? | blackboard
+What has no lid but can be opened? | eye
+What has no body but a head? | nail
+What has no lungs but needs air? | fire
+What has no legs but moves? | snake
+What can’t be used until it’s broken? | egg
+What has a ring but no finger? | phone
+What has pages but no book? | website
+What can be cracked, made, told, and played? | joke
+What gets sharper the more you use it? | brain
+What has no beginning, middle, or end? | circle
+What has numbers but no math? | clock
+What can be long or short, grown or bought, painted or left bare? | nail
+What has a tongue but cannot taste? | shoe
+What has no shadow? | light
+What has no weight but can be heavy? | thoughts
+What can you keep after giving it to someone? | word
+What has a door but no house? | oven
+What has a horn but doesn’t honk? | rhinoceros
+What can be seen once in a year, twice in a week, and never in a day? | e
+What has many needles but doesn’t sew? | pine tree
+What has branches but no fruit? | bank
+What has roots but never grows? | mountain
+What has an eye but no face? | needle
+What has no wings but can fly? | time
+What can you see in the middle of march and april? | r
+What has a tail and a head but no body? | coin
+What has stripes but is not a zebra? | shirt
+What has a shell but no body? | egg
+What can be swallowed but can swallow you? | pride
+What has keys but no locks? | piano
+What has a crown but no head? | tooth
+What has a back but no body? | chair
+What has a face but no eyes? | clock
+What has teeth but can’t chew? | comb
+What can be tall or short but never wide? | person
+What has a bed but no sleep? | river
+What has a top but no bottom? | hat
+What has a mouth but no teeth? | river
+What has arms but no hands? | chair
+What can’t be seen but can be felt? | wind
+What has a ring but no finger? | bell
+What has a name but no body? | shadow
+What can be broken but never held? | promise
+What can move without legs? | time
+What has a neck but no body? | bottle
+What has a head but no brain? | nail
+What has a face but no mouth? | clock
+What has an ear but cannot hear? | corn
+What can you hear but not touch? | sound
+What has a hole but still holds water? | sponge
+What has wings but cannot fly? | chicken
+What has a tongue but cannot speak? | shoe
+What has keys but no doors? | keyboard
+What can go through glass without breaking it? | light
+What has a bottom but no top? | leg
+What has a shell but no animal? | egg
+What has a lock but no key? | hair
+What has no color but can be seen? | air
+What has no voice but can speak? | echo
+What has no hands but can clap? | thunder
+What has no brain but can think? | computer
+What has no heart but can beat? | drum
+What has no legs but can walk? | time
+What has no eyes but can see? | camera
+What has no mouth but can talk? | radio
+What has no ears but can hear? | microphone
+What has no feet but can run? | water
+What has no wings but can soar? | kite
+What has no body but can move? | wind
+What has no face but can show emotion? | emoji
+What has no shape but fills space? | gas
+What has no taste but can be sweet? | love
+What has no smell but can be sensed? | air
+What has no weight but can be heavy? | burden
+What has no sound but can be loud? | silence
+What has no color but can shine? | light
+What has no edges but can roll? | ball
+What has no life but can grow? | crystal
+What has no form but can change? | water
+What has no limits but can be broken? | record
+What has no rules but can be played? | game
+What has no owner but belongs to all? | earth
+What has no start but has an end? | story
+What has no direction but can move? | time
+What has no height but can be tall? | building
+What has no width but can be wide? | river
+What has no depth but can be deep? | thought
+What has no speed but can be fast? | idea
+What has no weight but can carry? | memory
+What has no power but can control? | fear
+What has no form but can be seen? | shadow
+What has no voice but can be heard? | music
+What has no eyes but can watch? | camera
+What has no hands but can hold? | container
+What has no feet but can travel? | time
+What has no life but can die? | battery
+What has no heart but can feel? | human
+What has no legs but can stand? | table
+What has no arms but can hug? | shirt
+What has no teeth but can bite? | cold
+What has no wings but can fly? | imagination
+What has no body but can grow? | shadow
+What has no brain but can learn? | machine
+What has no name but exists? | thing
+What has no value but is priceless? | time
+What has no end but keeps going? | time
+What has no beginning but exists? | circle
+What has no middle but is whole? | circle
+What has no sides but has shape? | circle
+What has no sound but can be heard? | silence
+What has no light but can be seen? | darkness
+What has no touch but can be felt? | emotion
+What has no taste but can be enjoyed? | music
+What has no smell but can be sensed? | air
+What has no weight but can crush? | pressure
+What has no speed but can race? | time
+What has no limits but can be broken? | record
+What has no form but can be changed? | water
+What has no face but shows expression? | emoji
+What has no life but can be alive? | idea
+What has no body but casts a shadow? | object
+What has no edge but can cut? | words
+What has no hands but can build? | time
+What has no feet but can climb? | vine
+What has no legs but can jump? | ball
+What has no arms but can catch? | net
+What has no eyes but can aim? | gun
+What has no brain but can decide? | computer
+What has no voice but can command? | signal
+What has no heart but can love? | human
