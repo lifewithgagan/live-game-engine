@@ -20,12 +20,7 @@ app.get("/chat", (req, res) => {
     console.log("💬 CHAT:", user, "→", guess);
 
     // 🔥 ALWAYS TRACK ACTIVITY FIRST
-lastMessageTime[user] = Date.now();
-
-// reset warning immediately if active
-if (warnedUsers[user]) {
-    delete warnedUsers[user];
-}
+markUserActive(user);
 
 if (riskZone.has(user)) {
     riskZone.delete(user);
@@ -137,6 +132,24 @@ function emitWheelList() {
 
 function emitRiskZone() {
     io.emit("riskZoneUpdate", Array.from(riskZone));
+}
+
+function markUserActive(user) {
+
+    // ✅ update activity time
+    lastMessageTime[user] = Date.now();
+
+    // ✅ remove warning
+    if (warnedUsers[user]) {
+        delete warnedUsers[user];
+    }
+
+    // ✅ remove from risk zone
+    if (riskZone.has(user)) {
+        riskZone.delete(user);
+        emitRiskZone();
+        console.log("✅ REMOVED FROM RISK:", user);
+    }
 }
 
 // 🎡 ADD TO WHEEL
@@ -738,7 +751,7 @@ function startYouTubePolling() {
 
 
 function processGuess(user, message) {
-
+markUserActive(user); // ✅ ALWAYS FIRST
 if (game.locked || game.winnerDeclared) return;
         
 
