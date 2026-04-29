@@ -177,3 +177,417 @@ What has no eyes but can aim? | gun
 What has no brain but can decide? | computer
 What has no voice but can command? | signal
 What has no heart but can love? | human
+How many months have 28 days? | 12
+If you pass the person in 2nd place, what place are you in? | second
+What is 1 + 1 × 0? | 1
+What is 0 divided by 5? | 0
+How many sides does a circle have? | 2
+If a plane crashes on the border of india and nepal, where are survivors buried? | nowhere
+What is heavier, 1 kg of iron or 1 kg of cotton? | same
+How many seconds are in a year? | 12
+If you drop a red stone in blue sea, what happens? | sinks
+How many letters are in the alphabet? | 11
+What comes next: 2, 4, 8, 16, ? | 32
+What is the capital of england? | london
+How many animals did moses take on the ark? | 0
+What is always coming but never arrives? | tomorrow
+If you have 3 apples and take away 2, how many do you have? | 2
+What is 10 + 10 ÷ 10? | 11
+How many wheels does a car have? | 4
+What gets bigger the more you take away? | hole
+If you have one match and enter a dark room, what do you light first? | match
+What is full of holes but holds water? | sponge
+How many birthdays does a person have? | 1
+What has to be broken to be used? | egg
+What has hands but cannot clap? | clock
+What goes up but never comes down? | age
+What has a neck but no head? | bottle
+What runs but never walks? | water
+What has one eye but cannot see? | needle
+What has many teeth but cannot bite? | comb
+What gets wetter the more it dries? | towel
+What can travel around the world but stays in one spot? | stamp
+If you have 5 chocolates and give away all but 2, how many left? | 2
+What is 100 minus 10 times 5? | 50
+What is 5 squared? | 25
+If you have 10 rupees and spend 10, how much left? | 0
+What is the opposite of always? | never
+If yesterday was tomorrow, what day is today? | today
+How many legs do 2 dogs have? | 8
+What is 2 + 2 × 2? | 6
+What is the square root of 64? | 8
+If you throw a rock straight up, what happens? | comes down
+What is the last letter of “last”? | t
+What is the first letter of “first”? | f
+What is 50% of 200? | 100
+If you have 4, take away 3, how many left? | 1
+What is 9 + 10? | 19
+How many letters in “seven”? | 5
+What is 11 × 0? | 0
+What is half of 100? | 50
+If you divide 10 by 2, what do you get? | 5
+What is 1 × 1 × 1 × 1? | 1
+What is 100 ÷ 10? | 10
+How many days in february (non leap year)? | 28
+What is 7 × 7? | 49
+If you add 1 to 99, what do you get? | 100
+What is 6 × 6? | 36
+How many sides does a triangle have? | 3
+What is 10 × 10? | 100
+If you subtract 1 from 1, what do you get? | 0
+What is 3 × 3 × 3? | 27
+What is 1000 ÷ 10? | 100
+What is 8 × 8? | 64
+What is 9 × 9? | 81
+What is 2 × 10? | 20
+What is 4 × 5? | 20
+What is 12 × 2? | 24
+What is 3 × 4? | 12
+What is 15 ÷ 3? | 5
+What is 18 ÷ 2? | 9
+What is 20 ÷ 4? | 5
+What is 30 ÷ 5? | 6
+What is 40 ÷ 8? | 5
+What is 25 ÷ 5? | 5
+What is 36 ÷ 6? | 6
+What is 49 ÷ 7? | 7
+What is 64 ÷ 8? | 8
+What is 81 ÷ 9? | 9
+What is 100 ÷ 20? | 5
+What is 144 ÷ 12? | 12
+What is 121 ÷ 11? | 11
+What is 1 + 2 + 3 + 4 + 5? | 15
+What is 2 + 4 + 6 + 8? | 20
+What is 3 + 6 + 9? | 18
+What is 5 + 10 + 15? | 30
+What is 7 + 14 + 21? | 42
+What is 8 + 16 + 24? | 48
+What is 9 + 18 + 27? | 54
+What is 10 + 20 + 30? | 60
+What is 11 + 22 + 33? | 66
+What is 12 + 24 + 36? | 72
+What is 13 + 26 + 39? | 78
+What is 14 + 28 + 42? | 84
+What is 15 + 30 + 45? | 90
+What is 16 + 32 + 48? | 96
+What is 17 + 34 + 51? | 102
+What is 18 + 36 + 54? | 108
+What is 19 + 38 + 57? | 114
+What is 20 + 40 + 60? | 120
+What is 21 + 42 + 63? | 126
+What is 22 + 44 + 66? | 132
+What is 23 + 46 + 69? | 138
+What is 24 + 48 + 72? | 144
+What is 25 + 50 + 75? | 150
+What is 26 + 52 + 78? | 156
+What is 27 + 54 + 81? | 162
+What is 28 + 56 + 84? | 168
+What is 29 + 58 + 87? | 174
+What is 30 + 60 + 90? | 180
+What is 31 + 62 + 93? | 186
+What is 32 + 64 + 96? | 192
+What is 33 + 66 + 99? | 198
+What is 34 + 68 + 102? | 204
+What is 35 + 70 + 105? | 210
+What is 36 + 72 + 108? | 216
+What is 37 + 74 + 111? | 222
+What is 38 + 76 + 114? | 228
+What is 39 + 78 + 117? | 234
+What is 40 + 80 + 120? | 240
+What is 41 + 82 + 123? | 246
+What is 42 + 84 + 126? | 252
+What is 43 + 86 + 129? | 258
+What is 44 + 88 + 132? | 264
+What is 45 + 90 + 135? | 270
+What is 46 + 92 + 138? | 276
+What is 47 + 94 + 141? | 282
+What is 48 + 96 + 144? | 288
+What is 49 + 98 + 147? | 294
+What is 50 + 100 + 150? | 300
+What is 1 + 1 + 1 + 1 + 1? | 5
+What is 2 + 2 × 2? | 6
+What is 10 + 10 ÷ 10? | 11
+How many days are there in a week? | 7
+How many months have 30 days? | 11
+How many months have 28 days? | 12
+If you pass 2nd place, what place are you? | second
+What is the last letter of “apple”? | e
+What is the first letter of “banana”? | b
+How many letters are in “alphabet”? | 8
+How many letters are in “the alphabet”? | 11
+What is 0 × 100? | 0
+What is 100 ÷ 0? | undefined
+What is half of 2 + 2? | 3
+If you have 3 apples and take 2, how many do you have? | 2
+What is 5 × 0 + 5? | 5
+What is 5 × (0 + 5)? | 25
+What is 6 ÷ 2 × 3? | 9
+What is 6 ÷ (2 × 3)? | 1
+What is 8 + 2 × 5? | 18
+What is (8 + 2) × 5? | 50
+What is 9 + 1 × 0? | 9
+What is (9 + 1) × 0? | 0
+How many sides does a circle have? | 2
+How many legs do 3 dogs have? | 12
+How many legs do 2 humans have? | 4
+How many fingers do both hands have? | 10
+How many thumbs do you have? | 2
+What is the opposite of up? | down
+What is the opposite of left? | right
+What is always in front of you but can’t be seen? | future
+What gets bigger the more you take away? | hole
+What goes up but never comes down? | age
+What has a neck but no head? | bottle
+What has hands but cannot clap? | clock
+What has teeth but cannot bite? | comb
+What has one eye but cannot see? | needle
+What runs but never walks? | water
+What gets wetter the more it dries? | towel
+What can travel around the world but stays in one place? | stamp
+What is full of holes but holds water? | sponge
+What has keys but no locks? | piano
+What has a heart but no organs? | cards
+What has a face but no eyes? | clock
+What is always coming but never arrives? | tomorrow
+What has an end but no beginning? | stick
+What has a ring but no finger? | phone
+What has a bed but never sleeps? | river
+What has branches but no fruit? | bank
+What can you catch but not throw? | cold
+What has words but never speaks? | book
+What is always moving but never walks? | time
+What can you break without touching? | promise
+What has a bottom at the top? | legs
+What has four legs but can’t walk? | table
+What is black when clean and white when dirty? | blackboard
+What has a mouth but cannot eat? | river
+What has ears but cannot hear? | corn
+What has a tail but no body? | coin
+What has wings but cannot fly? | fan
+What has a head and a tail but no body? | coin
+What has a bark but no bite? | tree
+What has eyes but cannot see? | potato
+What has a tongue but cannot talk? | shoe
+What has wheels but doesn’t move? | chair
+What has a lock but no key? | hair
+What has a crown but no king? | tooth
+What has a spine but no bones? | book
+What has a shell but no body? | egg
+What has roots but no tree? | teeth
+What has a cap but no head? | bottle
+What has a needle but no thread? | clock
+What has numbers but no math? | clock
+What has a mirror but no reflection? | mind
+What has a door but no house? | oven
+What has a lid but no jar? | eye
+What has a screen but no display? | window
+What has a handle but no door? | cup
+What has a belt but no pants? | road
+What has a bank but no money? | river
+What has a net but no fish? | internet
+What has a light but no bulb? | sun
+What has a key but no lock? | keyboard
+What has a file but no paper? | computer
+What has a page but no book? | website
+What has a drive but no car? | computer
+What has a mouse but no animal? | computer
+What has a window but no house? | computer
+What has a virus but no disease? | computer
+What has memory but no brain? | computer
+What has a chip but no food? | computer
+What has a port but no ship? | computer
+What has a cloud but no rain? | internet
+What has a web but no spider? | internet
+What has a link but no chain? | internet
+What has a stream but no water? | internet
+What has a channel but no tv? | youtube
+What has followers but no legs? | instagram
+What has likes but no emotions? | post
+What has views but no eyes? | video
+What has comments but no voice? | post
+What is the capital of India? | new delhi
+What is the capital of USA? | washington dc
+What is the capital of UK? | london
+What is the capital of France? | paris
+What is the capital of Japan? | tokyo
+What is the capital of China? | beijing
+What is the capital of Australia? | canberra
+What is the capital of Canada? | ottawa
+What is the capital of Germany? | berlin
+What is the capital of Italy? | rome
+Who is known as the Father of the Nation (India)? | mahatma gandhi
+Who wrote the Indian national anthem? | rabindranath tagore
+Who is the current Prime Minister of India? | narendra modi
+Who discovered gravity? | isaac newton
+Who invented the telephone? | alexander graham bell
+Who invented the light bulb? | thomas edison
+Who painted the Mona Lisa? | leonardo da vinci
+Who discovered penicillin? | alexander fleming
+Who was the first man on the moon? | neil armstrong
+Which planet is known as the Red Planet? | mars
+Which planet is closest to the sun? | mercury
+Which planet is the largest? | jupiter
+Which is the smallest planet? | mercury
+Which is the hottest planet? | venus
+What is the national animal of India? | tiger
+What is the national bird of India? | peacock
+What is the national flower of India? | lotus
+What is the national tree of India? | banyan
+What is the national fruit of India? | mango
+Which is the longest river in the world? | nile
+Which is the longest river in India? | ganges
+Which is the largest ocean? | pacific ocean
+Which is the smallest ocean? | arctic ocean
+Which is the highest mountain in the world? | mount everest
+Which is the highest peak in India? | kanchenjunga
+Which is the largest desert in the world? | sahara
+Which is the largest continent? | asia
+Which is the smallest continent? | australia
+How many continents are there? | 7
+How many oceans are there? | 5
+How many states are there in India? | 28
+How many union territories are there in India? | 8
+What is the currency of India? | rupee
+What is the currency of USA? | dollar
+What is the currency of UK? | pound
+What is the currency of Japan? | yen
+What is the currency of China? | yuan
+What is the currency of UAE? | dirham
+What is the currency of Europe? | euro
+What is the SI unit of force? | newton
+What is the SI unit of energy? | joule
+What is the SI unit of power? | watt
+What is the SI unit of temperature? | kelvin
+What is the SI unit of current? | ampere
+What is the SI unit of length? | meter
+What is the SI unit of mass? | kilogram
+What is H2O commonly known as? | water
+What is CO2? | carbon dioxide
+What is NaCl? | salt
+What is the chemical symbol of gold? | au
+What is the chemical symbol of silver? | ag
+What is the chemical symbol of iron? | fe
+What is the chemical symbol of oxygen? | o
+What is the chemical symbol of hydrogen? | h
+What is the chemical symbol of nitrogen? | n
+How many bones are there in the human body? | 206
+How many teeth does an adult human have? | 32
+How many hearts does an octopus have? | 3
+How many legs does a spider have? | 8
+How many days are there in a leap year? | 366
+How many hours are there in a day? | 24
+How many minutes in an hour? | 60
+How many seconds in a minute? | 60
+How many players are there in a cricket team? | 11
+How many players are there in a football team? | 11
+Who is known as the God of Cricket? | sachin tendulkar
+Who is known as the King of Pop? | michael jackson
+Who is known as the Nightingale of India? | sarojini naidu
+Who is known as the Iron Man of India? | sardar patel
+Which is the fastest land animal? | cheetah
+Which is the largest animal? | blue whale
+Which is the tallest animal? | giraffe
+Which is the smallest bone in the human body? | stapes
+Which is the largest organ in the human body? | skin
+Which is the smallest planet? | mercury
+Which gas do plants absorb? | carbon dioxide
+Which gas do humans breathe? | oxygen
+Which vitamin is produced by sunlight? | vitamin d
+Which part of the plant makes food? | leaf
+Which organ pumps blood? | heart
+Which organ helps in breathing? | lungs
+Which is the capital of Rajasthan? | jaipur
+Which is the capital of Maharashtra? | mumbai
+Which is the capital of Gujarat? | gandhinagar
+Which is the capital of Punjab? | chandigarh
+Which is the capital of Karnataka? | bengaluru
+Which is the capital of Tamil Nadu? | chennai
+Which is the capital of Telangana? | hyderabad
+Which is the capital of West Bengal? | kolkata
+Which is the capital of Bihar? | patna
+Which is the capital of Uttar Pradesh? | lucknow
+Which is the capital of Madhya Pradesh? | bhopal
+Which is the capital of Kerala? | thiruvananthapuram
+Which is the capital of Odisha? | bhubaneswar
+Which is the capital of Assam? | dispur
+Which is the capital of Goa? | panaji
+Which is the capital of Himachal Pradesh? | shimla
+Which is the capital of Uttarakhand? | देहरादून
+Which is the capital of Jharkhand? | ranchi
+Which is the capital of Chhattisgarh? | raipur
+Which is the capital of Haryana? | chandigarh
+Which is the capital of Andhra Pradesh? | amaravati
+Which is the capital of Sikkim? | gangtok
+Which is the capital of Meghalaya? | shillong
+Which is the capital of Manipur? | imphal
+Which is the capital of Mizoram? | aizawl
+Which is the capital of Nagaland? | kohima
+Which is the capital of Tripura? | agartala
+Which is the capital of Arunachal Pradesh? | itanagar
+Which is the capital of Jammu and Kashmir? | srinagar
+Which is the capital of Ladakh? | leh
+Which is the capital of Andaman and Nicobar Islands? | port blair
+Which is the capital of Delhi? | new delhi
+Which is the capital of Puducherry? | puducherry
+Which is the capital of Lakshadweep? | kavaratti
+Which is the capital of Chandigarh? | chandigarh
+Which is the capital of Dadra and Nagar Haveli? | silvassa
+Which is the capital of Daman and Diu? | daman
+What is the largest country in the world? | russia
+What is the smallest country in the world? | vatican city
+Which is the deepest ocean? | pacific ocean
+Which is the largest island? | greenland
+Which is the longest wall in the world? | great wall of china
+Which is the tallest building in the world? | burj khalifa
+Which is the largest lake in the world? | caspian sea
+Which is the largest river in the world? | amazon
+Which is the coldest place on earth? | antarctica
+Which is the hottest place on earth? | death valley
+Which is the largest rainforest? | amazon rainforest
+Which is the national sport of India? | hockey
+Which is the national sport of USA? | baseball
+Which is the national sport of Japan? | sumo wrestling
+Which is the national sport of China? | table tennis
+Which is the national sport of Canada? | ice hockey
+Which is the national sport of England? | cricket
+Which is the national sport of Australia? | cricket
+Which is the national sport of Pakistan? | hockey
+Which is the national sport of Bangladesh? | kabaddi
+Which is the national sport of Sri Lanka? | volleyball
+Which is the first month of the year? | january
+Which is the last month of the year? | december
+Which day comes after friday? | saturday
+Which day comes before monday? | sunday
+How many days are there in a year? | 365
+What is the boiling point of water? | 100
+What is the freezing point of water? | 0
+Which gas is used in balloons? | helium
+Which gas is used for breathing? | oxygen
+Which metal is liquid at room temperature? | mercury
+Which planet has rings? | saturn
+Which planet is known as morning star? | venus
+Which planet is known as evening star? | venus
+Which is the brightest star? | sun
+Which is the nearest star to earth? | sun
+Which is the nearest planet to earth? | venus
+Which is the largest desert in india? | thar desert
+Which is the longest river in india? | ganges
+Which is the highest dam in india? | tehri dam
+Which is the largest dam in india? | bhakra nangal
+Which is the largest state in india? | rajasthan
+Which is the smallest state in india? | goa
+Which is the most populous country? | china
+Which is the second most populous country? | india
+Which is the largest democracy? | india
+Which is the oldest civilization? | mesopotamia
+Which is the first computer? | eniac
+Which is the first programming language? | fortran
+Which is the first satellite of india? | aryabhata
+Which is the first indian space mission? | chandrayaan 1
+Which is the first indian woman in space? | kalpana chawla
+Which is the first indian prime minister? | jawaharlal nehru
+Which is the first indian president? | rajendra prasad
+Which is the first indian woman prime minister? | indira gandhi
+Which is the first indian woman president? | pratibha patil
+Which is the first indian nobel laureate? | rabindranath tagore
+Which is the first olympic gold medalist of india? | abhinav bindra
