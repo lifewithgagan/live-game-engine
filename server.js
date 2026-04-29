@@ -27,6 +27,11 @@ if (warnedUsers[user]) {
     delete warnedUsers[user];
 }
 
+if (riskZone.has(user)) {
+    riskZone.delete(user);
+    emitRiskZone();
+}
+
 processGuess(user, guess);
 
     res.send("OK");
@@ -44,7 +49,7 @@ let requiredNextRound = {}; // users who must participate next round
 let participatedThisRound = {};
 let adminSockets = new Set();
 let isWheelListVisible = false;
-
+let riskZone = new Set();
 
 
 let latestAdminAnswer = null;
@@ -130,6 +135,9 @@ function emitWheelList() {
     io.emit("wheelList", wheel);
 }
 
+function emitRiskZone() {
+    io.emit("riskZoneUpdate", Array.from(riskZone));
+}
 
 // 🎡 ADD TO WHEEL
 function addToWheel(user) {
@@ -1101,6 +1109,10 @@ setInterval(() => {
 
             warnedUsers[username] = true;
 
+            riskZone.add(username); // ✅ ADD
+
+            emitRiskZone(); // ✅ EMIT
+
             io.emit("systemMessage",
                 `⚠️ ${username} stay active or lose your spot!`);
         }
@@ -1144,6 +1156,13 @@ function removeFromWheel(user, reason = "") {
         io.emit("systemMessage",
             `❌ ${user} removed (missed round)`);
     }
+
+    if (riskZone.has(user)) {
+        riskZone.delete(user);
+        emitRiskZone();
+    }
+
+    
     emitWheelList(); // 🔥 keep UI synced
 }
 

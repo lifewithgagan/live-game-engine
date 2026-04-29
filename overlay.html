@@ -562,6 +562,13 @@
     text-shadow: 0 0 15px #00ffff;
 }
 
+#riskZone {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #ff4444;
+    text-shadow: 0 0 10px red;
+}
+
     </style>
 </head>
 
@@ -584,6 +591,14 @@
                     <div class="panel-title">🔥 ROUND STREAK KING</div>
                     <div id="roundStreak">--</div>
                 </div>
+
+                <div class="panel-box left-box">
+                    <div class="panel-title">🚨 RISK ZONE</div>
+                    <div id="riskZone">All safe ✅</div>
+                </div>
+
+
+
 
             </div>
 
@@ -998,6 +1013,24 @@ socket.on("warning", (user) => {
 
 socket.on("removed", (user) => {
     showMessage(`❌ ${user.toUpperCase()} REMOVED`, 6000, "remove", 2);
+});
+
+socket.on("riskZoneUpdate", (users) => {
+
+    const el = document.getElementById("riskZone");
+
+    if (!users || users.length === 0) {
+        el.innerText = "All safe ✅";
+        return;
+    }
+
+    let html = "";
+
+    users.slice(0, 5).forEach((user) => {
+        html += `${user}\n`;
+    });
+
+    el.innerText = html;
 });
 
 function scaleLayout() {
