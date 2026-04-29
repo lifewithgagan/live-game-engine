@@ -1210,10 +1210,7 @@ function removeFromWheel(user, reason = "") {
             `❌ ${user} removed (missed round)`);
     }
 
-    if (riskZone.has(user)) {
-        riskZone.delete(user);
-        emitRiskZone();
-    }
+    
 
     
     emitWheelList(); // 🔥 keep UI synced
