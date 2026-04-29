@@ -88,6 +88,16 @@ let winStreakKing = {
 let currentStreakLeader = null;
 
 
+// 🔥 ROUND STREAK SYSTEM
+
+let roundStreaks = {};     // user → streak count
+let roundParticipants = {}; // who played THIS round
+
+let roundStreakKing = {
+    user: null,
+    streak: 0
+};
+
 // 🧠 WORDS
 
 // 😂 EMOJIS
@@ -150,6 +160,41 @@ for (let user in requiredNextRound) {
         removeFromWheel(user, "missed");
     }
 }
+
+// 🔥 UPDATE ROUND STREAKS FROM LAST ROUND
+
+for (let user in players) {
+
+    if (participatedThisRound[user]) {
+        // ✅ continued streak
+        if (!roundStreaks[user]) roundStreaks[user] = 0;
+        roundStreaks[user]++;
+    } else {
+        // ❌ broke streak
+        roundStreaks[user] = 0;
+    }
+}
+
+// 🏆 FIND CURRENT ROUND LEADER
+let topUser = null;
+let topStreak = 0;
+
+for (let user in roundStreaks) {
+    if (roundStreaks[user] > topStreak) {
+        topStreak = roundStreaks[user];
+        topUser = user;
+    }
+}
+
+roundStreakKing = {
+    user: topUser,
+    streak: topStreak
+};
+
+// 🔥 SEND TO UI
+emitStreaks();
+
+
 
 // 🔄 RESET TRACKING FOR NEW ROUND
 requiredNextRound = {};
@@ -297,6 +342,41 @@ for (let user in requiredNextRound) {
     }
 }
 
+// 🔥 UPDATE ROUND STREAKS FROM LAST ROUND
+
+for (let user in players) {
+
+    if (participatedThisRound[user]) {
+        // ✅ continued streak
+        if (!roundStreaks[user]) roundStreaks[user] = 0;
+        roundStreaks[user]++;
+    } else {
+        // ❌ broke streak
+        roundStreaks[user] = 0;
+    }
+}
+
+// 🏆 FIND CURRENT ROUND LEADER
+let topUser = null;
+let topStreak = 0;
+
+for (let user in roundStreaks) {
+    if (roundStreaks[user] > topStreak) {
+        topStreak = roundStreaks[user];
+        topUser = user;
+    }
+}
+
+roundStreakKing = {
+    user: topUser,
+    streak: topStreak
+};
+
+// 🔥 SEND TO UI
+emitStreaks();
+
+
+
 // 🔄 RESET TRACKING FOR NEW ROUND
 requiredNextRound = {};
 participatedThisRound = {};
@@ -343,6 +423,41 @@ function startQA() {
             removeFromWheel(user, "missed");
         }
     }
+
+// 🔥 UPDATE ROUND STREAKS FROM LAST ROUND
+
+for (let user in players) {
+
+    if (participatedThisRound[user]) {
+        // ✅ continued streak
+        if (!roundStreaks[user]) roundStreaks[user] = 0;
+        roundStreaks[user]++;
+    } else {
+        // ❌ broke streak
+        roundStreaks[user] = 0;
+    }
+}
+
+// 🏆 FIND CURRENT ROUND LEADER
+let topUser = null;
+let topStreak = 0;
+
+for (let user in roundStreaks) {
+    if (roundStreaks[user] > topStreak) {
+        topStreak = roundStreaks[user];
+        topUser = user;
+    }
+}
+
+roundStreakKing = {
+    user: topUser,
+    streak: topStreak
+};
+
+// 🔥 SEND TO UI
+emitStreaks();
+
+
 
     // 🔄 RESET ROUND TRACKING
     requiredNextRound = {};
@@ -396,6 +511,41 @@ for (let user in requiredNextRound) {
         removeFromWheel(user, "missed");
     }
 }
+
+// 🔥 UPDATE ROUND STREAKS FROM LAST ROUND
+
+for (let user in players) {
+
+    if (participatedThisRound[user]) {
+        // ✅ continued streak
+        if (!roundStreaks[user]) roundStreaks[user] = 0;
+        roundStreaks[user]++;
+    } else {
+        // ❌ broke streak
+        roundStreaks[user] = 0;
+    }
+}
+
+// 🏆 FIND CURRENT ROUND LEADER
+let topUser = null;
+let topStreak = 0;
+
+for (let user in roundStreaks) {
+    if (roundStreaks[user] > topStreak) {
+        topStreak = roundStreaks[user];
+        topUser = user;
+    }
+}
+
+roundStreakKing = {
+    user: topUser,
+    streak: topStreak
+};
+
+// 🔥 SEND TO UI
+emitStreaks();
+
+
 
 // 🔄 RESET TRACKING FOR NEW ROUND
 requiredNextRound = {};
@@ -762,7 +912,7 @@ game.spamScores[user]++;
 function emitStreaks() {
     io.emit("streakUpdate", {
         win: winStreakKing,
-        round: { user: null, streak: 0 } // placeholder for now
+        round: roundStreakKing
     });
 }
 
