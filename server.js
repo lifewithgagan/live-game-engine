@@ -85,6 +85,8 @@ let winStreakKing = {
     streak: 0
 };
 
+let currentStreakLeader = null;
+
 
 // 🧠 WORDS
 
@@ -858,13 +860,23 @@ if (lastWinner === user) {
 
 lastWinner = user;
 
-// update king
-if (winStreaks[user] > winStreakKing.streak) {
-    winStreakKing = {
-        user: user,
-        streak: winStreaks[user]
-    };
+// 🏆 UPDATE CURRENT LEADER (NOT ALL-TIME)
+
+// reset others if new winner breaks chain
+if (lastWinner !== user) {
+    // reset all OTHER streaks
+    for (let u in winStreaks) {
+        if (u !== user) {
+            winStreaks[u] = 0;
+        }
+    }
 }
+
+// update leader ALWAYS based on current winner
+winStreakKing = {
+    user: user,
+    streak: winStreaks[user]
+};
 
 // 🔥 SEND TO UI
 emitStreaks();
