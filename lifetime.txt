@@ -1,0 +1,7 @@
+UserA,3000
+UserB,2700
+UserC,800
+UserD,500
+UserE,200
+UserF,100
+UserG,100
