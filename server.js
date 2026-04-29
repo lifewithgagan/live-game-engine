@@ -1023,6 +1023,34 @@ winStreakKing = {
     streak: winStreaks[user]
 };
 
+// 🔥 UPDATE ROUND STREAK IMMEDIATELY (REAL-TIME)
+
+for (let u in players) {
+
+    if (participatedThisRound[u]) {
+        if (!roundStreaks[u]) roundStreaks[u] = 0;
+        roundStreaks[u]++;
+    } else {
+        roundStreaks[u] = 0;
+    }
+}
+
+// 🏆 FIND LEADER
+let topUser = null;
+let topStreak = 0;
+
+for (let u in roundStreaks) {
+    if (roundStreaks[u] > topStreak) {
+        topStreak = roundStreaks[u];
+        topUser = u;
+    }
+}
+
+roundStreakKing = {
+    user: topUser,
+    streak: topStreak
+};
+
 // 🔥 SEND TO UI
 emitStreaks();
 
