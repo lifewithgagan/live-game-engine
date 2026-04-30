@@ -1016,11 +1016,17 @@ if (DEBUG) {
     });
 }
 
-let wheelPlayers = [];
+let wheelPreviewData = [];
+let wheelPreviewIndex = 0;
 
 socket.on("wheelList", (data) => {
 
-    // FULL LIST (overlay)
+    wheelPreviewData = data || [];
+    wheelPreviewIndex = 0;
+
+    renderWheelPreview();
+
+    // FULL LIST (overlay stays same)
     const list = document.getElementById("wheel-list");
 
     let fullHtml = "";
@@ -1030,29 +1036,37 @@ socket.on("wheelList", (data) => {
     });
 
     list.innerHTML = fullHtml || "No players yet";
+});
 
+function renderWheelPreview() {
 
-    // RIGHT PANEL PREVIEW (TOP 5)
     const preview = document.getElementById("wheel-preview");
 
-    if (data.length === 0) {
+    if (!wheelPreviewData.length) {
         preview.innerHTML = "No players yet";
         return;
     }
 
-    let previewHtml = "";
+    let html = "";
 
-    data.slice(0, 3).forEach((user, i) => {
+    const slice = wheelPreviewData.slice(wheelPreviewIndex, wheelPreviewIndex + 2);
+
+    slice.forEach((user, i) => {
         let name = user.length > 12 ? user.substring(0, 12) + "…" : user;
-        previewHtml += `${i + 1}. ${name}<br>`;
+        html += `${wheelPreviewIndex + i + 1}. ${name}<br>`;
     });
 
-    if (data.length > 3) {
-        previewHtml += `<span style="color:#ffd700">+${data.length - 3} more waiting...</span>`;
-    }
+    preview.innerHTML = html;
 
-    preview.innerHTML = previewHtml;
-});
+    wheelPreviewIndex += 2;
+
+    if (wheelPreviewIndex >= wheelPreviewData.length) {
+        wheelPreviewIndex = 0;
+    }
+}
+
+// rotate every 4 sec
+setInterval(renderWheelPreview, 4000);
 
 let lifetimeData = [];
 let lifetimeIndex = 0;
@@ -1074,7 +1088,7 @@ function renderLifetime() {
 
     let html = "";
 
-    const slice = lifetimeData.slice(lifetimeIndex, lifetimeIndex + 3);
+    const slice = lifetimeData.slice(lifetimeIndex, lifetimeIndex + 2);
 
     slice.forEach(p => {
         html += `${p.user}  ₹${p.amount}\n`;
@@ -1082,7 +1096,7 @@ function renderLifetime() {
 
     el.innerText = html;
 
-    lifetimeIndex += 3;
+    lifetimeIndex += 2;
 
     if (lifetimeIndex >= lifetimeData.length) {
         lifetimeIndex = 0;
@@ -1268,23 +1282,43 @@ socket.on("removed", (user) => {
     showMessage(`❌ ${user.toUpperCase()} REMOVED`, 6000, "remove", 2);
 });
 
+let riskZoneData = [];
+let riskZoneIndex = 0;
+
 socket.on("riskZoneUpdate", (users) => {
+    riskZoneData = users || [];
+    riskZoneIndex = 0;
+    renderRiskZone();
+});
+
+function renderRiskZone() {
 
     const el = document.getElementById("riskZone");
 
-    if (!users || users.length === 0) {
+    if (!riskZoneData.length) {
         el.innerText = "All safe ✅";
         return;
     }
 
     let html = "";
 
-    users.slice(0, 5).forEach((user) => {
+    const slice = riskZoneData.slice(riskZoneIndex, riskZoneIndex + 2);
+
+    slice.forEach((user) => {
         html += `${user}\n`;
     });
 
     el.innerText = html;
-});
+
+    riskZoneIndex += 2;
+
+    if (riskZoneIndex >= riskZoneData.length) {
+        riskZoneIndex = 0;
+    }
+}
+
+// rotate every 4 sec
+setInterval(renderRiskZone, 4000);
 
 function scaleLayout() {
     const layout = document.getElementById("layout");
