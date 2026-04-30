@@ -576,8 +576,134 @@
     text-shadow: 0 0 10px gold;
 }
 
+/* 🏆 CHAMPION CARD */
 
+#championCard {
+    text-align: center;
+    padding: 18px;
+}
 
+/* HEADER */
+.champ-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: gold;
+    text-shadow: 0 0 12px gold;
+    margin-bottom: 10px;
+}
+
+/* MAIN */
+.champ-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* AVATAR */
+.champ-avatar {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: white;
+
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+/* NAME */
+.champ-name {
+    font-size: 28px;
+    font-weight: 900;
+
+    color: white;
+    text-shadow: 0 0 15px #00ffff;
+
+    letter-spacing: 1px;
+}
+
+/* RANK BADGE */
+.champ-rank {
+    margin-top: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    background: gold;
+    color: black;
+
+    padding: 6px 14px;
+    border-radius: 20px;
+
+    box-shadow: 0 0 12px gold;
+}
+
+/* STATS */
+.champ-stats {
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    font-size: 20px;
+}
+
+/* TAGLINE */
+.champ-tagline {
+    margin-top: 12px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+/* 🏆 LEADERBOARD UPGRADE */
+
+.leader-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 10px;
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.05);
+}
+
+.leader-row.top {
+    background: rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 10px gold;
+}
+
+.leader-rank {
+    width: 40px;
+    font-weight: bold;
+}
+
+.leader-name {
+    flex: 1;
+    text-align: left;
+}
+
+.leader-points {
+    font-weight: bold;
+    color: #00ffff;
+}
     </style>
 </head>
 
@@ -588,6 +714,29 @@
         <div id="left-panel">
 
             <div id="left-data">
+
+                <div class="panel-box left-box" id="championCard">
+
+                    <div class="champ-header">👑 DEFENDING CHAMPION</div>
+
+                    <div class="champ-main">
+                        <div class="champ-avatar" id="champAvatar">G</div>
+                        <div class="champ-name" id="champName">---</div>
+                    </div>
+
+                    <div class="champ-rank">🏆 RANK #1</div>
+
+                    <div class="champ-stats">
+                        <div><span>🔥</span> <span id="champWinStreak">0</span></div>
+                        <div><span>⭐</span> <span id="champPoints">0</span></div>
+                    </div>
+
+                    <div class="champ-tagline" id="champTagline">⚡ BEAT THE CHAMPION</div>
+
+                </div>
+
+
+
 
                 <!-- 🏆 WIN STREAK -->
                 <div class="panel-box left-box">
@@ -602,17 +751,14 @@
                 </div>
 
                 <div class="panel-box left-box">
-                    <div class="panel-title">🚨 RISK ZONE</div>
-                    <div id="riskZone">All safe ✅</div>
-                </div>
-
-                <div class="panel-box left-box">
                     <div class="panel-title">💰 LIFETIME WINNERS</div>
                     <div id="lifetimeBox">Loading...</div>
                 </div>
 
-
-
+                <div class="panel-box left-box">
+                    <div class="panel-title">🚨 RISK ZONE</div>
+                    <div id="riskZone">All safe ✅</div>
+                </div>
 
             </div>
 
@@ -663,17 +809,19 @@
             <!-- 📊 DATA -->
                     <div id="side-data">
 
+                        <!-- 🏆 LEADERBOARD -->
+                        <div class="panel-box">
+                            <div class="panel-title">🏆 LEADERBOARD</div>
+                            <div id="leaderboard"></div>
+                        </div>
+
                         <!-- 💬 TOP CHATTERS -->
                         <div class="panel-box">
                             <div class="panel-title">💬 TOP CHATTERS</div>
                             <div id="chatters"></div>
                         </div>
 
-                        <!-- 🏆 LEADERBOARD -->
-                        <div class="panel-box">
-                            <div class="panel-title">🏆 LEADERBOARD</div>
-                            <div id="leaderboard"></div>
-                        </div>
+                        
 
                         <!-- 🎡 WHEEL PLAYERS -->
                         <div class="panel-box">
@@ -710,6 +858,54 @@
 <script>
 const socket = io();
 
+socket.on("leaderboard", (data) => {
+
+    // existing leaderboard code (KEEP IT)
+
+    let html = "";
+
+    data.forEach(p => {
+
+        let medal = "";
+        if (p.rank === 1) medal = "🥇";
+        else if (p.rank === 2) medal = "🥈";
+        else if (p.rank === 3) medal = "🥉";
+        else medal = `#${p.rank}`;
+
+        let highlight = p.rank === 1 ? "leader-row top" : "leader-row";
+
+        let name = p.user.length > 10 ? p.user.substring(0, 10) + "…" : p.user;
+
+        html += `
+            <div class="${highlight}">
+                <div class="leader-rank">${medal}</div>
+                <div class="leader-name">${name}</div>
+                <div class="leader-points">${p.points}</div>
+            </div>
+        `;
+    });
+    document.getElementById("leaderboard").innerHTML = html;
+
+
+    // 🔥 NEW: UPDATE CHAMPION CARD
+
+    if (data.length > 0) {
+        const top = data[0];
+
+        // NAME
+        document.getElementById("champName").innerText = top.user.toUpperCase();
+
+        // AVATAR LETTER
+        document.getElementById("champAvatar").innerText =
+            top.user.charAt(0).toUpperCase();
+
+        // POINTS
+        document.getElementById("champPoints").innerText = top.points;
+    }
+});
+
+
+
 socket.on("connect", () => {
     console.log("🟢 Connected to server:", socket.id);
 });
@@ -725,6 +921,11 @@ socket.on("streakUpdate", (data) => {
 
     const winEl = document.getElementById("winStreak");
     const roundEl = document.getElementById("roundStreak");
+
+    // 🔥 UPDATE CHAMPION WIN STREAK
+    if (data.win && data.win.user) {
+        document.getElementById("champWinStreak").innerText = data.win.streak;
+    }
 
     if (data.win && data.win.user) {
         winEl.innerText = `${data.win.user} × ${data.win.streak}`;
@@ -1010,7 +1211,7 @@ socket.on("qaQuestion", (data) => {
 
 });
 
-
+/*
 // 📊 LEADERBOARD
 socket.on("leaderboard", (data) => {
     let html = "";
@@ -1020,6 +1221,7 @@ html += `#${p.rank} ${name} (${p.points})<br>`;
     });
     document.getElementById("leaderboard").innerHTML = html;
 });
+*/
 
 // 💬 CHATTERS
 socket.on("topChatters", (data) => {
