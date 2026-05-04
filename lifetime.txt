@@ -1,10 +1,10 @@
 Madhur,3000
 Anika,1200
 Rambling,700
-PixlePulse,250
-Sw4y4mStudios,50
-Reema,100
 Raj Khurd,400
+PixlePulse,250
+Sw4y4mStudios,150
+Reema,100
 Harshul,100
 RecordswithAkash,100
 ProGamer,100
