@@ -1086,15 +1086,7 @@ winStreakKing = {
 
 // 🔥 UPDATE ROUND STREAK IMMEDIATELY (REAL-TIME)
 
-for (let u in players) {
 
-    if (participatedThisRound[u]) {
-        if (!roundStreaks[u]) roundStreaks[u] = 0;
-        roundStreaks[u]++;
-    } else {
-        roundStreaks[u] = 0;
-    }
-}
 
 // 🏆 FIND LEADER
 let topUser = null;
