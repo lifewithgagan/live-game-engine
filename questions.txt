@@ -1,67 +1,363 @@
+The Shawshank ____ | Redemption
+Forrest ____ | Gump
+Saving Private ____ | Ryan
+The Green ____ | Mile
+The Wolf of Wall ____ | Street
+The Pursuit of ____ | Happyness
+Catch Me If You ____ | Can
+Now You ____ Me | See
+The Fault in Our ____ | Stars
+A Quiet ____ | Place
+Bird ____ | Box
+The Maze ____ | Runner
+Ready Player ____ | One
+Charlie and the Chocolate ____ | Factory
+Fantastic Beasts The Crimes of ____ | Grindelwald
+Fantastic Four Superhero ____ | Team
+The Chronicles of Narnia The Lion the Witch and the ____ | Wardrobe
+The Chronicles of Narnia Prince ____ | Caspian
+The Chronicles of Narnia Voyage of the Dawn ____ | Treader
+Alice in ____ | Wonderland
+Wreck It ____ | Ralph
+Ralph Breaks the ____ | Internet
+Rise of the Planet of the ____ | Apes
+Dawn of the Planet of the ____ | Apes
+War for the Planet of the ____ | Apes
+Planet of the ____ | Apes
+The Lego ____ | Movie
+Batman Begins Dark ____ | Knight
+The Batman Gotham ____ | Vigilante
+Man of ____ | Steel
+Justice ____ | League
+Suicide ____ | Squad
+Edge of ____ | Tomorrow
+Live Die ____ | Repeat
+No Time to ____ | Die
+Skyfall Secret ____ | Agent
+Casino ____ | Royale
+Quantum of ____ | Solace
+John ____ | Wick
+Indiana Jones and the Last ____ | Crusade
+Indiana Jones Raiders of the Lost ____ | Ark
+Transformers Revenge of the ____ | Fallen
+Transformers Dark of the ____ | Moon
+Rise of the ____ | Guardians
+Guardians of the Galaxy Volume ____ | Three
+Teenage Mutant Ninja ____ | Turtles
+The Last ____ | Samurai
+Top Gun Maverick Fighter ____ | Pilot
+Jumanji Welcome to the ____ | Jungle
+Jumanji The Next ____ | Level
+The Dark ____ | Knight
+Avengers Endgame Final ____ | Battle
+Spider Man No Way ____ | Home
+Harry Potter and the Chamber of ____ | Secrets
+Harry Potter and the Goblet of ____ | Fire
+Harry Potter and the Prisoner of ____ | Azkaban
+The Lord of the ____ | Rings
+The Hunger ____ | Games
+Fast and ____ | Furious
+Mission Impossible Ghost ____ | Protocol
+Pirates of the Caribbean Dead Man’s ____ | Chest
+Beauty and the ____ | Beast
+Finding ____ | Nemo
+Finding ____ | Dory
+Toy ____ | Story
+Monsters ____ | Inc
+Frozen Snow ____ | Queen
+The Lion ____ | King
+How to Train Your ____ | Dragon
+The Secret Life of ____ | Pets
+Diary of a Wimpy ____ | Kid
+Night at the ____ | Museum
+Cloudy with a Chance of ____ | Meatballs
+Back to the ____ | Future
+Jurassic ____ | Park
+Doctor Strange Multiverse of ____ | Madness
+Captain America Civil ____ | War
+Black Panther Wakanda ____ | Forever
+Guardians of the ____ | Galaxy
+Star ____ | Wars
+The Amazing Spider ____ | Man
+The Incredible ____ | Hulk
+The Super Mario ____ | Bros
+Cars Racing ____ | Adventure
+Inside ____ | Out
+Despicable ____ | Me
+Minions Rise of ____ | Gru
+Kung Fu ____ | Panda
+Madagascar Wild ____ | Adventure
+Ice ____ | Age
+Aladdin Magic ____ | Carpet
+Home Alone Christmas ____ | Chaos
+Kabhi Khushi Kabhie ____ | Gham
+Hum Aapke Hain ____ | Koun
+Kuch Kuch Hota ____ | Hai
+Kal Ho ____ | Naa
+Kabhi Alvida Naa ____ | Kehna
+Yeh Jawaani Hai ____ | Deewani
+Ae Dil Hai ____ | Mushkil
+Om Shanti ____ | Om
+Rab Ne Bana Di ____ | Jodi
+Bajrangi ____ | Bhaijaan
+Munna Bhai ____ | MBBS
+3 ____ | Idiots
+Chennai ____ | Express
+Golmaal Fun ____ | Unlimited
+Drishyam Hidden ____ | Truth
+Don The Chase ____ | Begins
+War and ____ | Action
+Tiger Zinda ____ | Hai
+Ek Tha ____ | Tiger
+Student of the ____ | Year
+Main Hoon ____ | Na
+Baazigar The Dangerous ____ | Player
+Mohabbatein Love ____ | Story
+Devdas Tragic ____ | Hero
+Rockstar Musical ____ | Journey
+Barfi Sweet ____ | Surprise
+Dil Chahta ____ | Hai
+Zindagi Na Milegi ____ | Dobara
+Wake Up ____ | Sid
+Dear ____ | Zindagi
+Money doesn’t grow on ____ | Trees
+Every cloud has a silver ____ | Lining
+The grass is always greener on the other ____ | Side
+Actions speak louder than ____ | Words
+Too many cooks spoil the ____ | Broth
+A journey of a thousand miles begins with a single ____ | Step
+Don’t count your chickens before they ____ | Hatch
+When life gives you lemons make ____ | Lemonade
+You can’t judge a book by its ____ | Cover
+Practice makes ____ | Perfect
+Better late than ____ | Never
+The pen is mightier than the ____ | Sword
+Where there’s smoke there’s ____ | Fire
+Honesty is the best ____ | Policy
+All that glitters is not ____ | Gold
+Birds of a feather flock ____ | Together
+Rome wasn’t built in a ____ | Day
+The squeaky wheel gets the ____ | Grease
+Fortune favors the ____ | Brave
+The apple doesn’t fall far from the ____ | Tree
+No pain no ____ | Gain
+A watched pot never ____ | Boils
+Too much of anything is ____ | Bad
+There’s no place like ____ | Home
+Necessity is the mother of ____ | Invention
+Beggars can’t be ____ | Choosers
+Don’t bite the hand that ____ you | Feeds
+You reap what you ____ | Sow
+Curiosity killed the ____ | Cat
+The customer is always ____ | Right
+Absence makes the heart grow ____ | Fonder
+Laughter is the best ____ | Medicine
+If it ain’t broke don’t ____ it | Fix
+Time and tide wait for no ____ | Man
+Out of sight out of ____ | Mind
+A picture is worth a thousand ____ | Words
+Jack of all trades master of ____ | None
+Too little too ____ | Late
+The road to success is always under ____ | Construction
+Dream big work hard stay ____ | Humble
+The harder you work the luckier you ____ | Get
+Winners never quit and quitters never ____ | Win
+Life is what happens when you’re busy making other ____ | Plans
+Do what you can with what you have where you ____ | Are
+Success usually comes to those who are too busy to be looking for ____ | It
+The future belongs to those who believe in the beauty of their ____ | Dreams
+Happiness depends upon ourselves not on anyone ____ | Else
+It always seems impossible until it is ____ | Done
+Difficult roads often lead to beautiful ____ | Destinations
+Great things never come from comfort ____ | Zones
+Harry had a red ____ | Ball
+The cat drank warm ____ | Milk
+Twinkle twinkle little ____ | Star
+A stitch in time saves ____ | Nine
+The early bird catches the ____ | Worm
+An apple a day keeps the ____ away | Doctor
+Tom and Jerry love eating ____ | Cheese
+The lion is the king of the ____ | Jungle
+She opened the door with a ____ | Key
+The teacher wrote on the ____ | Blackboard
+The baby drank water from a ____ | Bottle
+The train stopped at the ____ | Station
+He wore a black ____ | Jacket
+The farmer grows rice in the ____ | Field
+The kids played in the ____ | Playground
+She put the flowers in a ____ | Vase
+The airplane landed at the ____ | Airport
+The dog buried a juicy ____ | Bone
+The chef cooked spicy ____ | Noodles
+The student forgot his ____ | Homework
+The magician pulled a rabbit from a ____ | Hat
+The pirate searched for hidden ____ | Treasure
+The police caught the clever ____ | Thief
+The astronaut traveled to the ____ | Moon
+The fisherman sailed across the ____ | Ocean
+The little girl lost her favorite ____ | Doll
+The monkey climbed the tall ____ | Tree
+The king sat on a golden ____ | Throne
+The doctor checked the patient’s ____ | Heart
+The baker made fresh chocolate ____ | Cake
+Spider-Man Far From ____ | Home
+The Pursuit of ____ | Happyness
+The Wolf of Wall ____ | Street
+Charlie and the Chocolate ____ | Factory
+How to Train Your ____ | Dragon
+The Fast and the ____ | Furious
+Beauty and the ____ | Beast
+Cloudy with a Chance of ____ | Meatballs
+The Secret Life of ____ | Pets
+Diary of a Wimpy ____ | Kid
+The Lord of the ____ | Rings
+Pirates of the Caribbean Dead Man’s ____ | Chest
+Harry Potter and the Goblet of ____ | Fire
+Fantastic Beasts The Crimes of ____ | Grindelwald
+Avengers Infinity ____ | War
+Captain America Civil ____ | War
+Mission Impossible Ghost ____ | Protocol
+Night at the ____ | Museum
+The Chronicles of Narnia Prince ____ | Caspian
+Doctor Strange in the Multiverse of ____ | Madness
+2 4 6 8 ?|10
+5 10 15 20 ?|25
+1 3 5 7 ?|9
+10 20 30 40 ?|50
+100 90 80 70 ?|60
+1 4 9 16 ?|25
+2 3 5 7 ?|11
+1 1 2 3 5 ?|8
+3 6 9 12 ?|15
+8 16 24 32 ?|40
+50 45 40 35 ?|30
+7 14 21 28 ?|35
+9 18 27 36 ?|45
+11 22 33 44 ?|55
+1 2 4 8 ?|16
+81 64 49 36 ?|25
+A B C D ?|e
+Z Y X W ?|v
+Monday Tuesday Wednesday ?|thursday
+January February March ?|april
+Red Blue Green ?|yellow
+Circle Square Triangle ?|rectangle
+Cat Dog Bird ?|fish
+Apple Banana Mango ?|orange
+2 6 12 20 ?|30
+1 8 27 64 ?|125
+13 26 39 52 ?|65
+100 200 300 400 ?|500
+4 8 12 16 ?|20
+99 88 77 66 ?|55
+3 9 27 81 ?|243
+1 5 9 13 ?|17
+6 12 18 24 ?|30
+12 24 36 48 ?|60
+5 25 125 ?|625
+2 5 10 17 ?|26
+1 2 6 24 ?|120
+144 121 100 81 ?|64
+A C E G ?|i
+B D F H ?|j
+5 4 3 2 ?|1
+0 1 1 2 3 ?|5
+2 4 8 16 32 ?|64
+10 9 8 7 ?|6
+7 11 15 19 ?|23
+25 20 15 10 ?|5
+1 10 100 1000 ?|10000
+3 5 7 9 ?|11
+4 16 36 64 ?|100
+9 7 5 3 ?|1
+What is the capital of France?|paris
+Which planet is known as the Red Planet?|mars
+Who wrote Romeo and Juliet?|shakespeare
+What is the largest ocean on Earth?|pacific ocean
+Which country is famous for the pyramids?|egypt
+What is the national animal of India?|tiger
+How many continents are there?|7
+What gas do plants absorb from the atmosphere?|carbon dioxide
+Who invented the telephone?|alexander graham bell
+What is the currency of Japan?|yen
+Which is the longest river in the world?|nile
+Who painted the Mona Lisa?|leonardo da vinci
+What is the smallest planet in the solar system?|mercury
+Which country gifted the Statue of Liberty to the USA?|france
+What is the boiling point of water in Celsius?|100
+Who discovered gravity?|isaac newton
+What is the capital of Australia?|canberra
+Which animal is known as the King of the Jungle?|lion
+What is the fastest land animal?|cheetah
+Who was the first man on the moon?|neil armstrong
+What is the largest mammal?|blue whale
+What language is primarily spoken in Brazil?|portuguese
+Which continent is the Sahara Desert located in?|africa
+What is the hardest natural substance?|diamond
+How many players are there in a cricket team?|11
+What is the chemical symbol for gold?|au
+Which festival is known as the festival of lights in India?|diwali
+What is the tallest mountain in the world?|mount everest
+Which organ pumps blood in the human body?|heart
+Who is known as the Father of the Nation in India?|mahatma gandhi
+Which planet has rings around it?|saturn
+What is the largest country in the world by area?|russia
+What is the national sport of Japan?|sumo wrestling
+Who wrote Harry Potter?|jk rowling
+Which bird is known for mimicking human speech?|parrot
+What is the currency of the United States?|dollar
+Which metal is liquid at room temperature?|mercury
+What is the capital of Canada?|ottawa
+How many colors are there in a rainbow?|7
+Who invented the light bulb?|thomas edison
+Which is the largest desert in the world?|antarctica
+What is the square root of 64?|8
+What is the main ingredient in guacamole?|avocado
+Which country is famous for sushi?|japan
+What is the national flower of India?|lotus
+What is the tallest animal in the world?|giraffe
+Which is the coldest continent?|antarctica
+What is the currency of the United Kingdom?|pound
+Who was the first President of the United States?|george washington
+Which blood group is known as the universal donor?|o negative
 What has to be broken before you can use it? | egg
-What goes up but never comes down? | age
 What has a neck but no head? | bottle
-What has hands but cannot clap? | clock
-What has one eye but cannot see? | needle
 What has many teeth but cannot bite? | comb
 What gets wetter the more it dries? | towel
-What can travel around the world while staying in one spot? | stamp
 What has keys but cannot open locks? | piano
 What has a ring but no finger? | phone
-What has a face and two hands but no arms or legs? | clock
-What has a thumb and four fingers but is not alive? | glove
-What runs but never walks? | water
 What has a head and a tail but no body? | coin
 What can you catch but not throw? | cold
 What is always in front of you but can’t be seen? | future
 What has legs but doesn’t walk? | table
 What has a bottom at the top? | leg
 What has a mouth but cannot eat? | river
-What has an eye but cannot see? | needle
-What gets bigger the more you take away? | hole
-What belongs to you but others use it more? | name
-What can you break without touching it? | promise
-What has words but never speaks? | book
 What can fill a room but takes up no space? | light
-What has a heart that doesn’t beat? | artichoke
 What is full of holes but still holds water? | sponge
 What has four wheels and flies? | garbage truck
 What can you hold without touching it? | breath
-What has a spine but no bones? | book
 What has a bark but no bite? | tree
-What comes once in a minute, twice in a moment, but never in a thousand years? | m
-What can’t talk but will reply when spoken to? | echo
 What begins with t, ends with t, and has t in it? | teapot
 What has cities but no houses? | map
 What has rivers but no water? | map
 What has forests but no trees? | map
-What has keys but can’t open doors? | keyboard
 What can you hear but not see? | sound
 What has a bed but never sleeps? | river
 What has a foot but no legs? | ruler
-What has ears but cannot hear? | corn
-What has an end but no beginning? | stick
-What has one head, one foot, and four legs? | bed
 What can run but cannot walk? | engine
 What can fly without wings? | time
-What has no life but can die? | battery
-What has a tail but no body? | coin
 What is black when clean and white when dirty? | blackboard
 What has no lid but can be opened? | eye
-What has no body but a head? | nail
 What has no lungs but needs air? | fire
 What has no legs but moves? | snake
 What can’t be used until it’s broken? | egg
 What has a ring but no finger? | phone
-What has pages but no book? | website
 What can be cracked, made, told, and played? | joke
 What gets sharper the more you use it? | brain
 What has no beginning, middle, or end? | circle
 What has numbers but no math? | clock
 What can be long or short, grown or bought, painted or left bare? | nail
-What has a tongue but cannot taste? | shoe
 What has no shadow? | light
-What has no weight but can be heavy? | thoughts
 What can you keep after giving it to someone? | word
 What has a door but no house? | oven
 What has a horn but doesn’t honk? | rhinoceros
@@ -69,17 +365,11 @@ What can be seen once in a year, twice in a week, and never in a day? | e
 What has many needles but doesn’t sew? | pine tree
 What has branches but no fruit? | bank
 What has roots but never grows? | mountain
-What has an eye but no face? | needle
-What has no wings but can fly? | time
 What can you see in the middle of march and april? | r
-What has a tail and a head but no body? | coin
 What has stripes but is not a zebra? | shirt
 What has a shell but no body? | egg
 What can be swallowed but can swallow you? | pride
 What has keys but no locks? | piano
-What has a crown but no head? | tooth
-What has a back but no body? | chair
-What has a face but no eyes? | clock
 What has teeth but can’t chew? | comb
 What can be tall or short but never wide? | person
 What has a bed but no sleep? | river
@@ -98,16 +388,12 @@ What has an ear but cannot hear? | corn
 What can you hear but not touch? | sound
 What has a hole but still holds water? | sponge
 What has wings but cannot fly? | chicken
-What has a tongue but cannot speak? | shoe
-What has keys but no doors? | keyboard
 What can go through glass without breaking it? | light
 What has a bottom but no top? | leg
 What has a shell but no animal? | egg
 What has a lock but no key? | hair
 What has no color but can be seen? | air
-What has no voice but can speak? | echo
 What has no hands but can clap? | thunder
-What has no brain but can think? | computer
 What has no heart but can beat? | drum
 What has no legs but can walk? | time
 What has no eyes but can see? | camera
@@ -183,27 +469,20 @@ What is 1 + 1 × 0? | 1
 What is 0 divided by 5? | 0
 How many sides does a circle have? | 2
 If a plane crashes on the border of india and nepal, where are survivors buried? | nowhere
-What is heavier, 1 kg of iron or 1 kg of cotton? | same
-How many seconds are in a year? | 12
 If you drop a red stone in blue sea, what happens? | sinks
 How many letters are in the alphabet? | 11
 What comes next: 2, 4, 8, 16, ? | 32
-What is the capital of england? | london
 How many animals did moses take on the ark? | 0
 What is always coming but never arrives? | tomorrow
 If you have 3 apples and take away 2, how many do you have? | 2
 What is 10 + 10 ÷ 10? | 11
 How many wheels does a car have? | 4
-What gets bigger the more you take away? | hole
 If you have one match and enter a dark room, what do you light first? | match
 What is full of holes but holds water? | sponge
-How many birthdays does a person have? | 1
 What has to be broken to be used? | egg
 What has hands but cannot clap? | clock
-What goes up but never comes down? | age
 What has a neck but no head? | bottle
 What runs but never walks? | water
-What has one eye but cannot see? | needle
 What has many teeth but cannot bite? | comb
 What gets wetter the more it dries? | towel
 What can travel around the world but stays in one spot? | stamp
@@ -235,6 +514,56 @@ What is 6 × 6? | 36
 How many sides does a triangle have? | 3
 What is 10 × 10? | 100
 If you subtract 1 from 1, what do you get? | 0
+What is 5 + 3? | 8
+What is 10 - 4? | 6
+What is 7 × 2? | 14
+What is 20 ÷ 5? | 4
+What is 9 + 6? | 15
+What is 15 - 7? | 8
+What is 8 × 3? | 24
+What is 36 ÷ 6? | 6
+What is 12 + 9? | 21
+What is 18 - 5? | 13
+What is 4 × 7? | 28
+What is 49 ÷ 7? | 7
+What is 25 + 25? | 50
+What is 100 - 45? | 55
+What is 6 × 6? | 36
+What is 81 ÷ 9? | 9
+What is 13 + 14? | 27
+What is 30 - 12? | 18
+What is 9 × 5? | 45
+What is 72 ÷ 8? | 9
+What is 50 + 20? | 70
+What is 90 - 30? | 60
+What is 11 × 4? | 44
+What is 64 ÷ 8? | 8
+What is 17 + 8? | 25
+What is 40 - 16? | 24
+What is 3 × 12? | 36
+What is 56 ÷ 7? | 8
+What is 99 + 1? | 100
+What is 75 - 25? | 50
+What is 5 × 9? | 45
+What is 42 ÷ 6? | 7
+What is 22 + 18? | 40
+What is 60 - 15? | 45
+What is 8 × 8? | 64
+What is 100 ÷ 10? | 10
+What is 14 + 16? | 30
+What is 45 - 19? | 26
+What is 7 × 7? | 49
+What is 63 ÷ 9? | 7
+What is 80 + 15? | 95
+What is 70 - 22? | 48
+What is 9 × 9? | 81
+What is 54 ÷ 6? | 9
+What is 26 + 13? | 39
+What is 100 - 64? | 36
+What is 12 × 5? | 60
+What is 48 ÷ 4? | 12
+What is 33 + 17? | 50
+What is 91 - 11? | 80
 What is 3 × 3 × 3? | 27
 What is 1000 ÷ 10? | 100
 What is 8 × 8? | 64
@@ -318,7 +647,6 @@ How many letters are in “the alphabet”? | 11
 What is 0 × 100? | 0
 What is 100 ÷ 0? | undefined
 What is half of 2 + 2? | 3
-If you have 3 apples and take 2, how many do you have? | 2
 What is 5 × 0 + 5? | 5
 What is 5 × (0 + 5)? | 25
 What is 6 ÷ 2 × 3? | 9
@@ -327,7 +655,6 @@ What is 8 + 2 × 5? | 18
 What is (8 + 2) × 5? | 50
 What is 9 + 1 × 0? | 9
 What is (9 + 1) × 0? | 0
-How many sides does a circle have? | 2
 How many legs do 3 dogs have? | 12
 How many legs do 2 humans have? | 4
 How many fingers do both hands have? | 10
@@ -336,11 +663,7 @@ What is the opposite of up? | down
 What is the opposite of left? | right
 What is always in front of you but can’t be seen? | future
 What gets bigger the more you take away? | hole
-What goes up but never comes down? | age
 What has a neck but no head? | bottle
-What has hands but cannot clap? | clock
-What has teeth but cannot bite? | comb
-What has one eye but cannot see? | needle
 What runs but never walks? | water
 What gets wetter the more it dries? | towel
 What can travel around the world but stays in one place? | stamp
