@@ -3,6 +3,7 @@ Anika,1200
 Rambling,700
 Raj Khurd,400
 KitKat,350
+SeeratJan,200
 Sw4y4mStudios,150
 Reema,100
 Harshul,100
